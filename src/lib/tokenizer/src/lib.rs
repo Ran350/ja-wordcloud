@@ -1,16 +1,16 @@
-mod utils;
+use lindera::tokenizer::Tokenizer;
+use lindera_core::core::viterbi::Mode;
+
 use wasm_bindgen::prelude::*;
 
-// When the `wee_alloc` feature is enabled, use `wee_alloc` as the global allocator.
-// #[cfg(feature = "wee_alloc")]
-// #[global_allocator]
-// static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
-
 #[wasm_bindgen]
-pub fn tokenize(value: i32) -> i32 {
-    let mut a: i32 = 0;
-    for i in 1..value+1 {
-        a += i;
-    }
-    a
+pub fn tokenize(x: Option<String>) -> String {
+    let mut tokenizer = Tokenizer::new(Mode::Normal, "");
+    let result = tokenizer
+        .tokenize(&x.unwrap())
+        .iter()
+        .map(|x| x.text)
+        .collect::<Vec<&str>>()
+        .join(",");
+    result.into()
 }

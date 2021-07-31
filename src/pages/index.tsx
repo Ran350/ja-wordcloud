@@ -1,23 +1,23 @@
-import { NextPage } from "next";
-import { useState } from "react";
+import React, { useState } from "react";
 
-import { sums } from "../lib/tokenizer/pkg/tokenizer_bg.wasm";
+const Token: React.FC = () => {
+  const [token, setToken] = useState<string>("");
+  const [text, setText] = useState<string>("");
 
+  const handleOnChange = async (x: React.ChangeEvent<HTMLInputElement>) => {
+    const { tokenize } = await import("../lib/tokenizer/pkg/tokenizer");
+    const data = await tokenize(x.target.value);
+    setToken(data);
+    setText(x.target.value);
+  };
 
-const IndexPage: NextPage = () => {
-  const [value, setValue] = useState(0);
-  
   return (
     <div>
-      <input
-        onChange={(e) => {
-          const v = Number(e.target.value);
-          !isNaN(v) && setValue(sums(v));
-        }}
-      />
-      <div>{value}</div>
+      <input size={100} type="text" onChange={(e) => handleOnChange(e)} />
+      <h1>origin: {text}</h1>
+      <h1>token: {token}</h1>
     </div>
   );
 };
 
-export default IndexPage;
+export default Token;
