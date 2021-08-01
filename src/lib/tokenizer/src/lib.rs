@@ -4,13 +4,13 @@ use lindera_core::core::viterbi::Mode;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub fn tokenize(x: Option<String>) -> String {
+pub fn tokenize(x: String) -> String {
     let mut tokenizer = Tokenizer::new(Mode::Normal, "");
     let result = tokenizer
-        .tokenize(&x.unwrap())
+        .tokenize(&x)
         .iter()
         .map(|x| x.text)
         .collect::<Vec<&str>>()
-        .join(",");
-    result.into()
+        .join(" ");
+    return result.into();
 }
