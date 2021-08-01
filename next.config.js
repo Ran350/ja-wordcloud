@@ -2,6 +2,7 @@ const withPWA = require("next-pwa");
 
 module.exports = withPWA({
   reactStrictMode: true,
+  assetPrefix: "/web-wordcloud",
 
   pwa: {
     dest: "public",
