@@ -1,7 +1,7 @@
 {
     "theme_color": "#285943",
     "background_color": "#285943",
-    "display": "fullscreen",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "Web-WordCloud",
