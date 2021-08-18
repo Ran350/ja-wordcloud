@@ -1,9 +1,21 @@
 import App, { AppContext, AppProps } from "next/app";
 import Head from "next/head";
+import { useEffect } from "react";
 
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    console.log(`
+見てくれてありがとう！
+
+- GitHub repository:
+    https://github.com/Ran350/web-wordcloud
+- Issues
+    https://github.com/Ran350/web-wordcloud/issues
+    `);
+  }, []);
+
   return (
     <div>
       <Head>
