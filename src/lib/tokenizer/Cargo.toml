@@ -11,8 +11,8 @@ crate-type = ["cdylib", "rlib"]
 default = ["console_error_panic_hook"]
 
 [dependencies]
-lindera = { git = "https://github.com/lindera-morphology/lindera.git" }
-lindera-core = { git = "https://github.com/lindera-morphology/lindera.git" }
+lindera = "0.7.1"
+lindera-core = "0.7.1"
 wasm-bindgen = "0.2.63"
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
