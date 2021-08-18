@@ -2,10 +2,57 @@
   "extends": [
     "next",
     "next/core-web-vitals",
+
+    // base
     "eslint:recommended",
+
+    // React
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+
+    // TypeScript
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
+
+    // Prettier integration
     "prettier"
-  ]
+  ],
+
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+
+  "settings": {
+    "react": { "version": "detect" }
+  },
+
+  "rules": {
+    "import/prefer-default-export": "off",
+    "react/destructuring-assignment": "off",
+
+    // for Next.js
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+
+    // for TypeScript
+    "react/prop-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+
+    // restrict order of imports
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", ["sibling", "index"]],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
 }

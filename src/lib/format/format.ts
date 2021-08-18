@@ -1,8 +1,8 @@
-import { stopWords } from "./stopWords";
+import { stopWords } from './stopWords'
 
-export type Token = [string, number][];
+export type Token = [string, number][]
 
-const removeStopWords = (l: Token) => l.filter((e) => !stopWords.includes(e[0]));
+const removeStopWords = (l: Token) => l.filter((e) => !stopWords.includes(e[0]))
 
 export const format = (token: string): Token =>
   // "word1 word2 word1"
@@ -12,11 +12,12 @@ export const format = (token: string): Token =>
 
   Object.entries(
     token
-      .split(" ")
+      .split(' ')
       .reduce<Record<string, number>>(
         (count, word) => ({ ...count, [word]: (count[word] ?? 0) + 1 }),
-        {}
-      )
-  );
+        {},
+      ),
+  )
 
-export const formatToken = (token: string): Token => removeStopWords(format(token));
+export const formatToken = (token: string): Token =>
+  removeStopWords(format(token))

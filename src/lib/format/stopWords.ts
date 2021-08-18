@@ -1,20 +1,20 @@
-const kakuJoshi = ["が", "の", "を", "に", "へ", "で", "と", "や"];
+const kakuJoshi = ['が', 'の', 'を', 'に', 'へ', 'で', 'と', 'や']
 
-const setsuzokuJoshi = ["ば", "と", "し", "て"];
+const setsuzokuJoshi = ['ば', 'と', 'し', 'て']
 
-const fukuJoshi = ["は", "も", "か"];
+const fukuJoshi = ['は', 'も', 'か']
 
-const shuJoshi = ["な", "ね", "ぞ", "よ", "わ"];
+const shuJoshi = ['な', 'ね', 'ぞ', 'よ', 'わ']
 
-const joDoushi = ["れ", "せ", "ね", "た", "だ", "う"];
+const joDoushi = ['れ', 'せ', 'ね', 'た', 'だ', 'う']
 
-const specific = ["，", "．", "。", "、", "「", "」"];
+const specific = ['，', '．', '。', '、', '「', '」']
 
-export const stopWords = new Array().concat(
-  kakuJoshi,
-  setsuzokuJoshi,
-  fukuJoshi,
-  shuJoshi,
-  joDoushi,
-  specific
-);
+export const stopWords = [
+  ...kakuJoshi,
+  ...setsuzokuJoshi,
+  ...fukuJoshi,
+  ...shuJoshi,
+  ...joDoushi,
+  ...specific,
+]

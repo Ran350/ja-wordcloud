@@ -34,15 +34,15 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Code Check
-        run: yarn run check
-
       - uses: jetli/wasm-pack-action@v0.3.0
         with:
           version: 'latest'
       
       - name: Build wasm
         run: yarn run wasm
+
+      - name: Code Check
+        run: yarn run check
 
       - name: Build next
         run: yarn run build

@@ -1,13 +1,11 @@
-import Head from "next/head";
-import { useState, VFC } from "react";
+import Head from 'next/head'
+import { useState, VFC } from 'react'
 
-import { TextArea } from "../components/TextArea";
-import { WC } from "../components/WC";
+import { TextArea } from '../components/TextArea'
+import { WC } from '../components/WC'
 
 const IndexPage: VFC = () => {
-  const [token, setToken] = useState<string>("");
-
-  
+  const [token, setToken] = useState<string>('')
 
   return (
     <>
@@ -23,13 +21,15 @@ const IndexPage: VFC = () => {
 
           <WC token={token} />
 
-          <TextArea token={token} setToken={setToken} />
+          <TextArea setToken={setToken} />
 
-          <div className="my-2 text-center text-lg text-gray-500">©2021 Ran</div>
+          <div className="my-2 text-center text-lg text-gray-500">
+            ©2021 Ran
+          </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage
