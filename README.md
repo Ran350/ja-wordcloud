@@ -3,7 +3,7 @@
 # [Web WordCloud](https://ran350.github.io/web-wordcloud/)
 
 ![Deploy](https://github.com/Ran350/web-wordcloud/workflows/Deploy/badge.svg)
-<!-- ![Code Check](https://github.com/Ran350/web-wordcloud/workflows/Code%20Check/badge.svg) -->
+![Code Check](https://github.com/Ran350/web-wordcloud/workflows/Code%20Check/badge.svg)
 
 </div>
 
@@ -38,19 +38,19 @@ See `scripts` section of [package.json](./package.json)
 - `yarn wasm` - runs `wasm-pack build`
 - `yarn dev` - runs `yarn build` & `yarn run`
 - `yarn build && yarn export` - exports HTML files and others in `./out`
-<!-- - `yarn run check` - checks with code formatting with Prettier, type checking with tsc, linting with ESLint -->
+- `yarn run check` - checks with code formatting with Prettier, type checking with tsc, linting with ESLint
 
-<!-- ## Continuos Integrations (CI)
+## Continuos Integrations (CI)
 
 See [.github/workflows/code-check.yml](./.github/workflows/code-check.yml)
 
-This workflows runs `yarn run check` in pushing/PR on `main` branch. -->
+This workflows runs `yarn install && yarn wasm && yarn run check` in pushing/PR on `main` branch.
 
 ## Continuous Delivery (CD)
 
 See [.github/workflows/deploy.yml](./.github/workflows/deploy.yml)
 
-This workflows runs `yarn wasm && yarn install && yarn build && yarn export` in pushing/PR on `main` branch, then deploys using GitHub Pages.
+This workflows runs `yarn install && yarn wasm && yarn build && yarn export` in pushing/PR on `main` branch, then deploys using GitHub Pages.
 
 ## TODO
 See [issue](https://github.com/Ran350/web-wordcloud/issues).
