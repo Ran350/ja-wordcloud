@@ -28,8 +28,13 @@ export const TextArea: VFC<Props> = ({ token, setToken }) => {
   };
 
   return (
-    <div>
-      <textarea rows={10} cols={100} onChange={(e) => handleOnChange(e)} />
+    <div className="my-2 flex justify-center">
+      <textarea
+        rows={5}
+        onChange={(e) => handleOnChange(e)}
+        placeholder="Enter the sentence to generate the Word Cloud"
+        className="w-full px-3 py-1 border rounded-lg text-lg text-gray-700 focus:outline-none"
+      />
     </div>
   );
 };

@@ -7,8 +7,8 @@ type Props = {
 };
 
 export const WC: VFC<Props> = ({ token }) => {
-  const canvasWidth = 900;
-  const canvasHeight = 600;
+  const canvasWidth = 1600 / 2;
+  const canvasHeight = 900 / 2;
 
   const words = formatToken(token);
 
@@ -56,7 +56,7 @@ export const WC: VFC<Props> = ({ token }) => {
   }, [words]);
 
   return (
-    <div>
+    <div className="my-2">
       <canvas width={canvasWidth} height={canvasHeight} ref={canvasRef} />
     </div>
   );
