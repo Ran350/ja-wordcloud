@@ -8,7 +8,7 @@ const shuJoshi = ['な', 'ね', 'ぞ', 'よ', 'わ']
 
 const joDoushi = ['れ', 'せ', 'ね', 'た', 'だ', 'う']
 
-const specific = ['，', '．', '。', '、', '「', '」']
+const specific = ['.', ',', '。', '、', '「', '」', '\n']
 
 export const stopWords = [
   ...kakuJoshi,

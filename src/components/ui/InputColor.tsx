@@ -5,5 +5,5 @@ type Props = {
   onChange: InputHTMLAttributes<HTMLInputElement>['onChange']
 }
 export const InputColor: VFC<Props> = ({ color, onChange }) => {
-  return <input type="color" value={color} onChange={onChange} className="w-32 h-8" />
+  return <input type="color" value={color} onChange={onChange} className="block w-32 h-8" />
 }
