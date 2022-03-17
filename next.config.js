@@ -1,24 +1,15 @@
-const withPWA = require("next-pwa");
-const runtimeCaching = require("next-pwa/cache");
+const runtimeCaching = require('next-pwa/cache')
+const withPWA = require('next-pwa')
 
 module.exports = withPWA({
   reactStrictMode: true,
-  assetPrefix: "/web-wordcloud",
-  basePath: "/web-wordcloud",
+  assetPrefix: '/web-wordcloud',
+  basePath: '/web-wordcloud',
 
   pwa: {
-    dest: "public",
+    dest: 'public',
     runtimeCaching,
-    scope: "/web-wordcloud",
-    disable: process.env.NODE_ENV === "development",
+    scope: '/web-wordcloud',
+    disable: process.env.NODE_ENV === 'development',
   },
-
-  webpack: (config, { isServer }) => {
-    config.experiments = {
-      asyncWebAssembly: true,
-    };
-    config.output.webassemblyModuleFilename =
-      (isServer ? "../" : "") + "static/wasm/webassembly.wasm";
-    return config;
-  },
-});
+})
