@@ -1,11 +1,4 @@
-import { WCOptions } from '../types/WCOptions.type'
-
-const getColor: WCOptions['color'] = (word, weight, fontSize) => {
-  // カラーパレット  #f4f7f7 > #8cd790 > #77af9c > #285943
-  if (fontSize >= 32) return '#285943'
-  if (fontSize > 16) return '#77af9c'
-  return '#8cd790'
-}
+import { InputWCOptions } from './WCOptions.type'
 
 const getCanvas = (): HTMLCanvasElement | undefined => {
   if (typeof document === 'undefined') {
@@ -26,17 +19,18 @@ const getGridSize = (): number | undefined => {
   return Math.round((16 * canvas.width) / 1024)
 }
 
-export const defaultOption: WCOptions = {
+export const defaultOption: InputWCOptions = {
   fontFamily: 'メイリオ',
   fontWeight: 'normal',
-  color: getColor,
+  // カラーパレット  #f4f7f7 > #8cd790 > #77af9c > #285943
+  colors: ['#285943', '#77af9c', '#8cd790'],
   backgroundColor: '#f4f7f7',
   minSize: 0,
   weightFactor: (size) => (size * 11) ** 1.1,
   gridSize: getGridSize(),
 
   drawMask: false,
-  maskColor: '#aaa',
+  maskColor: '#555555',
   maskGapWidth: undefined,
 
   minRotation: -90,

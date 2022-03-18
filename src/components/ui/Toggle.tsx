@@ -1,8 +1,9 @@
-import { VFC } from 'react'
+import type { VFC } from 'react'
 
 type Props = {
   checked: boolean
   onChange: () => void
+  // TODO: disabled?: boolean
 }
 export const Toggle: VFC<Props> = ({ checked, onChange }) => {
   return (

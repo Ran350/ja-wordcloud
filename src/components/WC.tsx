@@ -2,12 +2,13 @@ import { useRef, VFC } from 'react'
 import { useEffect } from 'react'
 import TinySegmenter from 'tiny-segmenter'
 
-import { WCOptions } from '../types/WCOptions.type'
 import { formatToken } from '../lib/format/format'
+import { getWCOptions } from '../lib/WCOption'
+import { InputWCOptions } from '../lib/WCOption/WCOptions.type'
 
 type Props = {
   sentence: string
-  option: WCOptions
+  option: InputWCOptions
   ranCount: number
 }
 
@@ -15,20 +16,26 @@ export const WC: VFC<Props> = ({ sentence, option, ranCount }) => {
   const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    // word segmentation
+    console.time('all')
+
+    /* word segmentation */
+    console.time('seg')
     const segmenter = new TinySegmenter()
     const segments = segmenter.segment(sentence)
+    console.timeEnd('seg')
 
-    // remove stop words
+    /* remove stop words */
     const words = formatToken(segments)
-    console.log(ranCount, words, option)
 
-    // create word cloud
+    /* create word cloud */
     import('wordcloud').then(({ default: WordCloud }) => {
       if (ref.current !== null) {
-        WordCloud(ref.current, { list: words, ...option })
+        WordCloud(ref.current, { list: words, ...getWCOptions(option) })
+        console.log(getWCOptions(option))
       }
     })
+
+    console.timeEnd('all')
   }, [ranCount])
 
   return (

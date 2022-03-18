@@ -5,8 +5,8 @@ import { OptionSettingArea } from '../components/OptionSettingArea'
 import { TextArea } from '../components/TextArea'
 import { Button } from '../components/ui/Button'
 import { WC } from '../components/WC'
-import { defaultOption } from '../data/defaultOption'
 import { exampleSentence } from '../data/sentence'
+import { defaultOption } from '../lib/WCOption/defaultOption'
 
 const IndexPage: VFC = () => {
   const [ranCount, setRanCount] = useState(0)
@@ -39,8 +39,10 @@ const IndexPage: VFC = () => {
               <TextArea sentence={sentence} setSentence={setSentence} />
             </div>
 
-            <div className="p-12 w-96 bg-gray-50">
-              <OptionSettingArea option={option} setOption={setOption} />
+            <div className="px-8 w-80 bg-gray-50 flex flex-col justify-between">
+              <div className="pb-4 max-h-[600px] overflow-y-scroll">
+                <OptionSettingArea option={option} setOption={setOption} />
+              </div>
               <Button text="Run" onClick={() => setRanCount(ranCount + 1)} />
             </div>
           </div>

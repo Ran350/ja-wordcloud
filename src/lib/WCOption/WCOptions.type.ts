@@ -4,13 +4,22 @@ export type WCOptions = {
    * Presentation
    */
   /* フォント */
-  fontFamily?: 'ヒラギノ角ゴ ProN W3' | 'メイリオ' | 'sans-serif'
+  // fontFamily?: 'ヒラギノ角ゴ ProN W3' | 'メイリオ' | 'sans-serif'
+  // FIXME
+  fontFamily: string
 
   /* フォントの太さ */
-  fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 'normal' | 'bold' | 'bolder' | 'lighter'
+  // fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 'normal' | 'bold' | 'bolder' | 'lighter'
+  // FIXME
+  fontWeight: number | string
 
   /* 色 */
-  color: 'random-dark' | 'random-light' | string | ((word: string, weight: string | number, fontSize: number) => string)
+  color?:
+    | 'random-dark'
+    | 'random-light'
+    | string
+    | ((word: string, weight: string | number, fontSize: number) => string)
+
   /* 最小のフォントサイズ */
   minSize?: number
 
@@ -33,7 +42,7 @@ export type WCOptions = {
   drawMask: boolean
 
   /* マスクの色 */
-  maskColor?: string
+  maskColor: string
 
   /* マスクグリッドの間隔 */
   maskGapWidth?: number
@@ -60,5 +69,11 @@ export type WCOptions = {
    * Shape
    */
   // クラウドの形状
-  shape?: 'circle' | 'cardioid' | 'diamond' | 'square' | 'triangle-forward' | 'triangle' | 'pentagon' | 'star'
+  // shape: 'circle' | 'cardioid' | 'diamond' | 'square' | 'triangle-forward' | 'triangle' | 'pentagon' | 'star'
+  // FIXME
+  shape: string
 }
+
+export type InputWCOptions = {
+  colors: [string, string, string]
+} & WCOptions
