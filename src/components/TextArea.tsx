@@ -1,44 +1,22 @@
-import {
-  ChangeEvent,
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useRef,
-  VFC,
-} from 'react'
-
-import type { tokenize } from '../lib/tokenizer/pkg/tokenizer'
+import { ChangeEvent, Dispatch, SetStateAction, VFC } from 'react'
 
 type Props = {
-  setToken: Dispatch<SetStateAction<string>>
+  sentence: string
+  setSentence: Dispatch<SetStateAction<string>>
 }
 
-export const TextArea: VFC<Props> = ({ setToken }) => {
-  const tokenizeRef = useRef<typeof tokenize>()
-
-  useEffect(() => {
-    import('../lib/tokenizer/pkg/tokenizer').then(({ tokenize }) => {
-      tokenizeRef.current = tokenize
-    })
-  }, [])
-
-  const handleOnChange = (x: ChangeEvent<HTMLTextAreaElement>) => {
-    const tokenize = tokenizeRef.current
-
-    if (tokenize === undefined) {
-      return
-    }
-
-    const separated = tokenize(x.target.value)
-    setToken(separated)
+export const TextArea: VFC<Props> = ({ sentence, setSentence }) => {
+  const onChange = (x: ChangeEvent<HTMLTextAreaElement>) => {
+    const text = x.currentTarget.value
+    setSentence(text)
   }
 
   return (
     <div className="my-2 flex justify-center">
       <textarea
         rows={5}
-        onChange={(e) => handleOnChange(e)}
-        placeholder="Enter the sentence to generate the Word Cloud"
+        onChange={onChange}
+        placeholder={sentence}
         className="w-full px-3 py-1 border rounded-lg text-lg text-gray-700 focus:outline-none"
       />
     </div>

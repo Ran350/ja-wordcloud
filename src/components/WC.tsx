@@ -1,64 +1,46 @@
-import { VFC, useEffect, useRef } from 'react'
+import { useRef, VFC } from 'react'
+import { useEffect } from 'react'
+import TinySegmenter from 'tiny-segmenter'
 
 import { formatToken } from '../lib/format/format'
+import { getWCOptions } from '../lib/WCOption'
+import { InputWCOptions } from '../lib/WCOption/WCOptions.type'
 
 type Props = {
-  token: string
+  sentence: string
+  option: InputWCOptions
+  ranCount: number
 }
 
-export const WC: VFC<Props> = ({ token }) => {
-  const canvasWidth = 1600 / 2
-  const canvasHeight = 900 / 2
-
-  const words = formatToken(token)
-
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+export const WC: VFC<Props> = ({ sentence, option, ranCount }) => {
+  const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    const maxCount = Math.max(...words.map((v) => v[1]))
-    const minCount = Math.min(...words.map((v) => v[1]))
+    console.time('all')
 
-    const maxSize = 100
-    const minSize = 20
+    /* word segmentation */
+    console.time('seg')
+    const segmenter = new TinySegmenter()
+    const segments = segmenter.segment(sentence)
+    console.timeEnd('seg')
 
-    const getColor = (word: string, weight: string | number): string => {
-      // カラーパレット  #f4f7f7 > #8cd790 > #77af9c > #285943
-      if (weight >= maxCount / 5) {
-        return '#285943'
-      }
+    /* remove stop words */
+    const words = formatToken(segments)
 
-      if (weight > minCount) {
-        return '#77af9c'
-      }
-
-      return '#8cd790'
-    }
-
+    /* create word cloud */
     import('wordcloud').then(({ default: WordCloud }) => {
-      WordCloud(canvasRef.current!, {
-        list: words,
-        minSize: 0,
-        // @ts-ignore rotationSteps が型定義にない
-        rotationSteps: 2,
-        rotateRatio: 0.5,
-        shrinkToFit: true,
-        gridSize: Math.round((16 * canvasWidth) / 1024),
-        backgroundColor: '#f4f7f7',
-        color: getColor,
-        weightFactor: (size) =>
-          ((maxSize - minSize) / (maxCount - minCount)) * size + minSize,
-      })
-
-      return () => {
-        // @ts-ignore stop() が型定義にない
-        WordCloud.stop()
+      if (ref.current !== null) {
+        WordCloud(ref.current, { list: words, ...getWCOptions(option) })
+        console.log(getWCOptions(option))
       }
     })
-  }, [words])
+
+    console.timeEnd('all')
+  }, [ranCount])
 
   return (
     <div className="my-2">
-      <canvas width={canvasWidth} height={canvasHeight} ref={canvasRef} />
+      <canvas ref={ref} id="canvas" width="800" height="500"></canvas>
     </div>
   )
 }

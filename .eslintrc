@@ -37,6 +37,7 @@
     // for Next.js
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-is-valid": "off",
+    "@next/next/no-img-element": "off",
 
     // for TypeScript
     "react/prop-types": "off",
