@@ -73,7 +73,3 @@ export type WCOptions = {
   // FIXME
   shape: string
 }
-
-export type InputWCOptions = {
-  colors: [string, string, string]
-} & WCOptions

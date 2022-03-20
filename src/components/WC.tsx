@@ -1,18 +1,17 @@
-import { useRef, VFC } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import TinySegmenter from 'tiny-segmenter'
 
 import { formatToken } from '../lib/format/format'
-import { getWCOptions } from '../lib/WCOption'
-import { InputWCOptions } from '../lib/WCOption/WCOptions.type'
+
+import type { Form } from 'src/lib/form/index.type'
+import { translateForm2Option as translateForm2Options } from 'src/lib/translateForm2Option'
 
 type Props = {
   sentence: string
-  option: InputWCOptions
+  form: Form
   ranCount: number
 }
-
-export const WC: VFC<Props> = ({ sentence, option, ranCount }) => {
+export const WC: React.VFC<Props> = ({ sentence, form, ranCount }) => {
   const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -30,13 +29,14 @@ export const WC: VFC<Props> = ({ sentence, option, ranCount }) => {
     /* create word cloud */
     import('wordcloud').then(({ default: WordCloud }) => {
       if (ref.current !== null) {
-        WordCloud(ref.current, { list: words, ...getWCOptions(option) })
-        console.log(getWCOptions(option))
+        const options = translateForm2Options(form)
+        WordCloud(ref.current, { list: words, ...options })
+        console.log(options)
       }
     })
 
     console.timeEnd('all')
-  }, [ranCount])
+  }, [ranCount]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="my-2">

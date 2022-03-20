@@ -1,12 +1,9 @@
-import { ChangeEvent, Dispatch, SetStateAction, VFC } from 'react'
-
 type Props = {
   sentence: string
-  setSentence: Dispatch<SetStateAction<string>>
+  setSentence: React.Dispatch<React.SetStateAction<string>>
 }
-
-export const TextArea: VFC<Props> = ({ sentence, setSentence }) => {
-  const onChange = (x: ChangeEvent<HTMLTextAreaElement>) => {
+export const TextArea: React.VFC<Props> = ({ sentence, setSentence }) => {
+  const onChange = (x: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = x.currentTarget.value
     setSentence(text)
   }
