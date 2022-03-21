@@ -11,9 +11,13 @@ import { initForm } from '../lib/form/initForm'
 import { FormArea } from 'src/components/Form'
 
 const IndexPage: React.VFC = () => {
-  const [ranCount, setRanCount] = useState(0)
   const [form, setForm] = useState(initForm)
   const [sentence, setSentence] = useState(exampleSentence)
+
+  const [ranCount, setRanCount] = useState(0)
+  const onRun = () => {
+    setRanCount(ranCount + 1)
+  }
 
   return (
     <>
@@ -36,7 +40,7 @@ const IndexPage: React.VFC = () => {
               <FormArea form={form} setForm={setForm} />
             </div>
 
-            <Button text="Run" onClick={() => setRanCount(ranCount + 1)} />
+            <Button text="Run" onClick={onRun} />
           </div>
         </div>
       </div>

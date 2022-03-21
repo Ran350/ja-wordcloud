@@ -1,5 +1,3 @@
-import type { VFC } from 'react'
-
 type Props = {
   value: number
   max: number
@@ -7,7 +5,7 @@ type Props = {
   step?: number
   // TODO: disabled?: boolean
 }
-export const Range: VFC<Props> = ({ value, max, min = 0, step }) => {
+export const Range: React.VFC<Props> = ({ value, max, min = 0, step }) => {
   return (
     <>
       <input

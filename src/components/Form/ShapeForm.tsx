@@ -12,17 +12,20 @@ export const ShapeForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
     <div>
       <Label text="shape" />
+
       <Select
-        onChange={(shape) => {
-          setForm((form) => ({ ...form, shape }))
+        value={form.shape}
+        options={shapes.map((shape) => ({
+          key: shape,
+          value: shape,
+        }))}
+        onChange={(shape: string) => {
+          setForm((form) => ({
+            ...form,
+            shape,
+          }))
         }}
-      >
-        {shapes.map((shape) => (
-          <option key={shape} selected={shape === form.shape}>
-            {shape}
-          </option>
-        ))}
-      </Select>
+      />
     </div>
   )
 }

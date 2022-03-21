@@ -1,5 +1,3 @@
-import type { ChangeEvent, VFC } from 'react'
-
 type Props = {
   number?: number
   onChange: (num: number) => void
@@ -7,8 +5,8 @@ type Props = {
   min?: number
   // TODO: disabled?: boolean
 }
-export const InputNumber: VFC<Props> = ({ number, onChange, placeholder, min = 0 }) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+export const InputNumber: React.VFC<Props> = ({ number, onChange, placeholder, min = 0 }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value)
     if (value < min) {
       return

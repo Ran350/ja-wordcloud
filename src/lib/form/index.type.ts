@@ -1,6 +1,6 @@
 export type Form = {
   fontFamilyId: string
-  fontWeight: string
+  fontWeight: string | number
   colors: [string, string, string]
   backgroundColor: string
   minSize: number

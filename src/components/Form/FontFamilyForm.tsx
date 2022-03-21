@@ -11,17 +11,17 @@ type Props = {
 }
 export const FontFamilyForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <div>
+    <div className="">
       <Label text="font family" />
 
       <Details ariaLabel="font-family" summary={getFontFamilyName(form.fontFamilyId)}>
-        <div className="">
+        <div className="w-full">
           <List
             list={Object.entries(fontFamilies).map(([id, fontFamily]) => ({
               id,
-              text1: { text: 'サンプル', fontFamily: fontFamily.css },
-              text2: { text: fontFamily.name, fontFamily: 'font-noto_sans_jp' },
-              onKeyPress: () => setForm({ ...form, fontFamilyId: id }),
+              text1: { display: 'サンプル', fontFamily: fontFamily.css },
+              text2: { display: fontFamily.name },
+              onClick: () => setForm({ ...form, fontFamilyId: id }),
               selected: form.fontFamilyId === id,
             }))}
           />

@@ -7,7 +7,7 @@ export const initForm: Form = {
   colors: ['#285943', '#77af9c', '#8cd790'],
   backgroundColor: '#f4f7f7',
   minSize: 0,
-  gridSize: 50,
+  gridSize: 10,
 
   drawMask: false,
   maskColor: '#555555',

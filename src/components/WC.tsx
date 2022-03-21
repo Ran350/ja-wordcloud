@@ -40,7 +40,7 @@ export const WC: React.VFC<Props> = ({ sentence, form, ranCount }) => {
 
   return (
     <div className="my-2">
-      <canvas ref={ref} id="canvas" width="800" height="500"></canvas>
+      <canvas ref={ref} id="canvas" width="400" height="500"></canvas>
     </div>
   )
 }

@@ -13,13 +13,19 @@ export const FontWeightForm: React.VFC<Props> = ({ form, setForm }) => {
     <div>
       <Label text="font weight" />
 
-      <Select onChange={(fontWeight) => setForm((form) => ({ ...form, fontWeight }))}>
-        {fontWeights.map((fontWeight) => (
-          <option key={fontWeight} value={fontWeight} selected={fontWeight === form.fontWeight}>
-            {fontWeight}
-          </option>
-        ))}
-      </Select>
+      <Select
+        value={form.fontWeight}
+        options={fontWeights.map((fontWeight) => ({
+          key: fontWeight,
+          value: fontWeight,
+        }))}
+        onChange={(fontWeight) =>
+          setForm((form) => ({
+            ...form,
+            fontWeight,
+          }))
+        }
+      />
     </div>
   )
 }

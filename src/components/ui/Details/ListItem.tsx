@@ -1,37 +1,33 @@
-import { VFC } from 'react'
-
 import { url } from 'src/utils/config'
 
 export type ListItemProps = {
   text1: {
-    text: string
+    display: string
     fontFamily?: string
   }
   text2?: {
-    text: string
+    display: string
     fontFamily?: string
   }
-  onKeyPress: () => void
+  onClick: () => void
   selected: boolean
 }
-export const ListItem: VFC<ListItemProps> = ({ text1, text2, onKeyPress, selected }) => {
+export const ListItem: React.VFC<ListItemProps> = ({ text1, text2, onClick, selected }) => {
   return (
-    <div
-      role="option"
-      tabIndex={0}
-      aria-selected={true}
-      className="px-4 py-2 flex
+    <button
+      type="button"
+      className="pr-3 py-2 w-full flex
                 cursor-pointer group select-none
                 bg-gray-800 hover:bg-blue-600"
-      onKeyPress={onKeyPress}
+      onClick={onClick}
     >
-      {selected && <img src={url('/icons/check.svg')} alt="selected" />}
+      <span className="mx-2 w-4 text-center">{selected && <img src={url('/icons/check.svg')} alt="selected" />}</span>
 
       <span
         className={`text-sm text-gray-50 ${text1.fontFamily}
                     group-hover:text-white`}
       >
-        {text1.text}
+        {text1.display}
       </span>
 
       {text2 && (
@@ -40,9 +36,9 @@ export const ListItem: VFC<ListItemProps> = ({ text1, text2, onKeyPress, selecte
                    text-gray-500 text-xs text-right
                    group-hover:text-white ${text2.fontFamily}`}
         >
-          {text2.text}
+          {text2.display}
         </span>
       )}
-    </div>
+    </button>
   )
 }

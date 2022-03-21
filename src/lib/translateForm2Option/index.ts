@@ -3,7 +3,6 @@ import { Form } from '../form/index.type'
 import { WCOptions } from '../WCOption/index.type'
 
 import { setColor } from './color'
-import { getGridSize } from './grid'
 
 export const translateForm2Option = (form: Form): WCOptions => {
   return {
@@ -15,7 +14,7 @@ export const translateForm2Option = (form: Form): WCOptions => {
     backgroundColor: form.backgroundColor,
     minSize: form.minSize,
     weightFactor: (size) => (size * 11) ** 1.1,
-    gridSize: getGridSize(),
+    gridSize: form.gridSize,
 
     drawMask: form.drawMask,
     maskColor: form.maskColor,

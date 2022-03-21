@@ -1,5 +1,3 @@
-import type { VFC } from 'react'
-
 import { ListItem } from './ListItem'
 import type { ListItemProps } from './ListItem'
 
@@ -9,17 +7,11 @@ type Props = {
   list: Item[]
 }
 
-export const List: VFC<Props> = ({ list }) => {
+export const List: React.VFC<Props> = ({ list }) => {
   return (
-    <div role="listbox" className="z-10 w-full flex flex-col overflow-y-auto divide-y">
+    <div role="listbox" className="w-full flex flex-col overflow-y-auto divide-y">
       {list.map(({ id, ...item }) => (
-        <ListItem
-          key={id}
-          text1={item.text1}
-          text2={item.text2}
-          onKeyPress={() => item.onKeyPress()}
-          selected={item.selected}
-        />
+        <ListItem key={id} text1={item.text1} text2={item.text2} onClick={item.onClick} selected={item.selected} />
       ))}
     </div>
   )

@@ -1,11 +1,9 @@
-import type { VFC } from 'react'
-
 type Props = {
   checked: boolean
   onChange: () => void
   // TODO: disabled?: boolean
 }
-export const Toggle: VFC<Props> = ({ checked, onChange }) => {
+export const Toggle: React.VFC<Props> = ({ checked, onChange }) => {
   return (
     <label>
       <input type="checkbox" checked={checked} onChange={onChange} className="peer sr-only" />
