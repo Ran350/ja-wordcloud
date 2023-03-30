@@ -10,6 +10,10 @@
     "check": "yarn prettier --check src/ && yarn eslint src/"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@mantine/core": "^6.0.5",
+    "@mantine/form": "^6.0.5",
+    "@mantine/hooks": "^6.0.5",
     "@types/wordcloud": "^1.1.3",
     "eslint-config-prettier": "^8.3.0",
     "next": "11.0.1",
