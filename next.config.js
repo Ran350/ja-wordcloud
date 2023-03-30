@@ -2,7 +2,7 @@ const runtimeCaching = require('next-pwa/cache')
 const withPWA = require('next-pwa')
 
 const isProd = process.env.NODE_ENV === 'production'
-const urlPrefix = isProd ? '/web-wordcloud' : ''
+const urlPrefix = isProd ? '/ja-wordcloud' : ''
 
 module.exports = withPWA({
   reactStrictMode: true,

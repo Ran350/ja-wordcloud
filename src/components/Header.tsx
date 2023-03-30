@@ -3,7 +3,7 @@ import { url } from 'src/utils/config'
 export const Header: React.VFC = () => {
   const title = 'Japanese Word Cloud'
 
-  const githubURL = 'https://github.com/ran350/web-wordcloud'
+  const githubURL = 'https://github.com/ran350/ja-wordcloud'
   const githubIcon = {
     path: url('/icons/GitHub.svg'),
     alt: 'GitHub',
