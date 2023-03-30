@@ -2,11 +2,11 @@
     "theme_color": "#285943",
     "background_color": "#f4f7f7",
     "display": "standalone",
-    "scope": "/web-wordcloud",
-    "start_url": "/web-wordcloud",
-    "name": "Web-WordCloud",
+    "scope": "/ja-wordcloud",
+    "start_url": "/ja-wordcloud",
+    "name": "JA-WordCloud",
     "short_name": "WordCloud",
-    "description": "Web-WordCloud",
+    "description": "JA-WordCloud",
     "icons": [
         {
             "src": "icons/icon192.png",
