@@ -1,5 +1,4 @@
-import { InputNumber } from '../ui/InputNumber'
-import { Label } from '../ui/Label'
+import { NumberInput } from '@mantine/core'
 
 import type { Form } from 'src/lib/form/index.type'
 
@@ -9,16 +8,14 @@ type Props = {
 }
 export const GridSizeForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <div>
-      <Label text="grid size" />
-
-      <InputNumber
-        number={form.gridSize}
-        onChange={(gridSize) => {
-          setForm((form) => ({ ...form, gridSize }))
-        }}
-        placeholder="grid size"
-      />
-    </div>
+    <NumberInput
+      label="grid size"
+      placeholder="grid size"
+      value={form.gridSize}
+      onChange={(gridSize) => {
+        if (gridSize === '') return
+        setForm((form) => ({ ...form, gridSize }))
+      }}
+    />
   )
 }

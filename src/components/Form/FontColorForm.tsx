@@ -1,4 +1,5 @@
-import { InputColor } from '../ui/InputColor'
+import { ColorInput } from '@mantine/core'
+
 import { Label } from '../ui/Label'
 
 import type { Form } from 'src/lib/form/index.type'
@@ -10,16 +11,16 @@ type Props = {
 export const FontColorForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
     <div>
-      <Label text="font colors" />
-
       {Array.from({ length: form.colors.length }).map((_, i) => (
-        <InputColor
+        <ColorInput
           key={i}
           color={form.colors[i]}
-          onChange={(e) => {
-            const colors = form.colors
-            colors[i] = e.target.value
-            setForm((option) => ({ ...option, colors }))
+          onChange={(color) => {
+            setForm((prev) => {
+              const colors = prev.colors
+              colors[i] = color
+              return { ...prev, colors }
+            })
           }}
         />
       ))}

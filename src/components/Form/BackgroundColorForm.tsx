@@ -1,5 +1,4 @@
-import { InputColor } from '../ui/InputColor'
-import { Label } from '../ui/Label'
+import { ColorInput } from '@mantine/core'
 
 import type { Form } from 'src/lib/form/index.type'
 
@@ -9,18 +8,12 @@ type Props = {
 }
 export const BackgroundColorForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <div>
-      <Label text="background color" />
-
-      <InputColor
-        color={form.backgroundColor}
-        onChange={(e) => {
-          setForm((option) => ({
-            ...option,
-            backgroundColor: e.target.value,
-          }))
-        }}
-      />
-    </div>
+    <ColorInput
+      label="background color"
+      color={form.backgroundColor}
+      onChange={(backgroundColor) => {
+        setForm((prev) => ({ ...prev, backgroundColor }))
+      }}
+    />
   )
 }

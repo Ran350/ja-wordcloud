@@ -1,5 +1,4 @@
-import { Label } from '../ui/Label'
-import { Toggle } from '../ui/Toggle'
+import { Switch } from '@mantine/core'
 
 import type { Form } from 'src/lib/form/index.type'
 
@@ -10,18 +9,11 @@ type Props = {
 
 export const DrawMaskFrom: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <div>
-      <Label text="draw mask" />
-
-      <Toggle
-        checked={form.drawMask}
-        onChange={() =>
-          setForm((form) => ({
-            ...form,
-            drawMask: !form.drawMask,
-          }))
-        }
-      />
-    </div>
+    <Switch
+      labelPosition="left"
+      label="draw mask"
+      checked={form.drawMask}
+      onChange={() => setForm((form) => ({ ...form, drawMask: !form.drawMask }))}
+    />
   )
 }

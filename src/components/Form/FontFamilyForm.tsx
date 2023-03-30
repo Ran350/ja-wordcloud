@@ -1,9 +1,32 @@
-import { Details } from '../ui/Details'
-import { List } from '../ui/Details/List'
-import { Label } from '../ui/Label'
+import { Flex, Select, Text } from '@mantine/core'
+import { forwardRef } from 'react'
 
-import { fontFamilies, getFontFamilyName } from 'src/lib/form/data/fontFamily'
+import { fontFamilies } from 'src/lib/form/data/fontFamily'
 import type { Form } from 'src/lib/form/index.type'
+
+const data = Object.entries(fontFamilies).map(([_id, { name, css }]) => ({
+  value: name,
+  label: name,
+  fontFamily: css,
+}))
+
+type SelectItemProps = {
+  label: string
+  fontFamily: string
+}
+const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(function SelectItem(
+  { label, fontFamily, ...others },
+  ref,
+) {
+  return (
+    <div ref={ref} {...others}>
+      <Flex justify="space-between">
+        <Text>{label}</Text>
+        <Text style={{ fontFamily }}>サンプル</Text>
+      </Flex>
+    </div>
+  )
+})
 
 type Props = {
   form: Form
@@ -11,22 +34,18 @@ type Props = {
 }
 export const FontFamilyForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <div className="">
-      <Label text="font family" />
-
-      <Details ariaLabel="font-family" summary={getFontFamilyName(form.fontFamilyId)}>
-        <div className="w-full">
-          <List
-            list={Object.entries(fontFamilies).map(([id, fontFamily]) => ({
-              id,
-              text1: { display: 'サンプル', fontFamily: fontFamily.css },
-              text2: { display: fontFamily.name },
-              onClick: () => setForm({ ...form, fontFamilyId: id }),
-              selected: form.fontFamilyId === id,
-            }))}
-          />
-        </div>
-      </Details>
-    </div>
+    <Select
+      label="font family"
+      placeholder="font family"
+      itemComponent={SelectItem}
+      data={data}
+      searchable
+      maxDropdownHeight={400}
+      value={form.fontFamilyId}
+      onChange={(fontFamilyId) => {
+        if (fontFamilyId === null) return
+        setForm((prev) => ({ ...prev, fontFamilyId }))
+      }}
+    />
   )
 }

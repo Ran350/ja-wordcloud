@@ -39,7 +39,7 @@ export const WC: React.VFC<Props> = ({ sentence, form, ranCount }) => {
   }, [ranCount]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="my-2">
+    <div>
       <canvas ref={ref} id="canvas" width="400" height="500"></canvas>
     </div>
   )

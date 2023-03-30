@@ -1,5 +1,4 @@
-import { InputColor } from '../ui/InputColor'
-import { Label } from '../ui/Label'
+import { ColorInput } from '@mantine/core'
 
 import type { Form } from 'src/lib/form/index.type'
 
@@ -9,18 +8,12 @@ type Props = {
 }
 export const MaskColorForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <div>
-      <Label text="mask color" />
-
-      <InputColor
-        color={form.maskColor}
-        onChange={(e) => {
-          setForm((form) => ({
-            ...form,
-            maskColor: e.target.value,
-          }))
-        }}
-      />
-    </div>
+    <ColorInput
+      label="mask color"
+      color={form.maskColor}
+      onChange={(maskColor) => {
+        setForm((prev) => ({ ...prev, maskColor }))
+      }}
+    />
   )
 }

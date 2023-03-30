@@ -1,5 +1,4 @@
-import { InputNumber } from '../ui/InputNumber'
-import { Label } from '../ui/Label'
+import { NumberInput } from '@mantine/core'
 
 import type { Form } from 'src/lib/form/index.type'
 
@@ -9,15 +8,14 @@ type Props = {
 }
 export const MaskWidthForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <div>
-      <Label text="mask width" />
-
-      <InputNumber
-        number={form.gridSize}
-        onChange={(gridSize) => {
-          setForm((form) => ({ ...form, gridSize }))
-        }}
-      />
-    </div>
+    <NumberInput
+      label="mask width"
+      placeholder="mask width"
+      value={form.maskGapWidth}
+      onChange={(maskGapWidth) => {
+        if (maskGapWidth === '') return
+        setForm((form) => ({ ...form, maskGapWidth }))
+      }}
+    />
   )
 }

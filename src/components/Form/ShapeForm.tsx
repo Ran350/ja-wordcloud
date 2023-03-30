@@ -1,5 +1,4 @@
-import { Label } from '../ui/Label'
-import { Select } from '../ui/Select'
+import { Select } from '@mantine/core'
 
 import { shapes } from 'src/lib/form/data/shape'
 import type { Form } from 'src/lib/form/index.type'
@@ -10,22 +9,14 @@ type Props = {
 }
 export const ShapeForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <div>
-      <Label text="shape" />
-
-      <Select
-        value={form.shape}
-        options={shapes.map((shape) => ({
-          key: shape,
-          value: shape,
-        }))}
-        onChange={(shape: string) => {
-          setForm((form) => ({
-            ...form,
-            shape,
-          }))
-        }}
-      />
-    </div>
+    <Select
+      label="shape"
+      placeholder="shape"
+      value={`${form.shape}`}
+      data={shapes.map((shape) => ({ value: shape, label: shape }))}
+      onChange={(shape) => {
+        setForm((form) => ({ ...form, fw: shape }))
+      }}
+    />
   )
 }
