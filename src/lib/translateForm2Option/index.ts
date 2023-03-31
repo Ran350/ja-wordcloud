@@ -2,7 +2,12 @@ import { fontFamilies } from '../form/data/fontFamily'
 import { Form } from '../form/index.type'
 import { WCOptions } from '../WCOption/index.type'
 
-import { setColor } from './color'
+type SetColor = (colors: [string, string, string]) => WCOptions['color']
+const setColor: SetColor = (colors) => (word, weight, fontSize) => {
+  if (fontSize >= 32) return colors[0]
+  if (fontSize > 16) return colors[1]
+  return colors[2]
+}
 
 export const translateForm2Option = (form: Form): WCOptions => {
   return {

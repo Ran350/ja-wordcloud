@@ -1,22 +1,19 @@
 import { Select } from '@mantine/core'
 
 import { fontWeights } from 'src/lib/form/data/fontWeight'
-import type { Form } from 'src/lib/form/index.type'
 
 type Props = {
-  form: Form
-  setForm: React.Dispatch<React.SetStateAction<Form>>
+  fontWeight: string
+  onChange: (fontWeight: string) => void
 }
-export const FontWeightForm: React.VFC<Props> = ({ form, setForm }) => {
+export const FontWeightForm: React.VFC<Props> = (props) => {
   return (
     <Select
       label="font weight"
       placeholder="font weight"
-      value={`${form.fontWeight}`}
+      value={props.fontWeight}
       data={fontWeights.map((fw) => ({ value: `${fw}`, label: `${fw}` }))}
-      onChange={(fw) => {
-        setForm((form) => ({ ...form, fw }))
-      }}
+      onChange={props.onChange}
     />
   )
 }

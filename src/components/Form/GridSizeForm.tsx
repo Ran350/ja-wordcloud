@@ -3,19 +3,9 @@ import { NumberInput } from '@mantine/core'
 import type { Form } from 'src/lib/form/index.type'
 
 type Props = {
-  form: Form
-  setForm: React.Dispatch<React.SetStateAction<Form>>
+  gridSize: number
+  onChange: (gridSize: number) => void
 }
-export const GridSizeForm: React.VFC<Props> = ({ form, setForm }) => {
-  return (
-    <NumberInput
-      label="grid size"
-      placeholder="grid size"
-      value={form.gridSize}
-      onChange={(gridSize) => {
-        if (gridSize === '') return
-        setForm((form) => ({ ...form, gridSize }))
-      }}
-    />
-  )
+export const GridSizeForm: React.VFC<Props> = (props) => {
+  return <NumberInput label="grid size" placeholder="grid size" value={props.gridSize} onChange={props.onChange} />
 }

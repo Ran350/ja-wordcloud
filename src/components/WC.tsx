@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import TinySegmenter from 'tiny-segmenter'
 
-import { formatToken } from '../lib/format/format'
+import { tokenToListEntry } from '../lib/format/format'
 
 import type { Form } from 'src/lib/form/index.type'
 import { translateForm2Option as translateForm2Options } from 'src/lib/translateForm2Option'
@@ -24,23 +24,22 @@ export const WC: React.VFC<Props> = ({ sentence, form, ranCount }) => {
     console.timeEnd('seg')
 
     /* remove stop words */
-    const words = formatToken(segments)
+    const words = tokenToListEntry(segments)
 
     /* create word cloud */
     import('wordcloud').then(({ default: WordCloud }) => {
-      if (ref.current !== null) {
-        const options = translateForm2Options(form)
-        WordCloud(ref.current, { list: words, ...options })
-        console.log(options)
-      }
+      // 動的importしているのは、wordcloud2.jsがwindow objectを参照しており、Next.jsがSSG/SSRできないため
+      const options = translateForm2Options(form)
+      if (ref.current === null) return
+      WordCloud(ref.current, { list: words, ...options })
     })
 
     console.timeEnd('all')
   }, [ranCount]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div>
-      <canvas ref={ref} id="canvas" width="400" height="500"></canvas>
-    </div>
+    <>
+      <canvas ref={ref} id="canvas" width={16 * 40} height={9 * 40}></canvas>
+    </>
   )
 }

@@ -2,7 +2,6 @@ import { Flex, Select, Text } from '@mantine/core'
 import { forwardRef } from 'react'
 
 import { fontFamilies } from 'src/lib/form/data/fontFamily'
-import type { Form } from 'src/lib/form/index.type'
 
 const data = Object.entries(fontFamilies).map(([_id, { name, css }]) => ({
   value: name,
@@ -29,10 +28,10 @@ const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(function SelectIt
 })
 
 type Props = {
-  form: Form
-  setForm: React.Dispatch<React.SetStateAction<Form>>
+  fontFamily: string
+  onChange: (fontFamily: string) => void
 }
-export const FontFamilyForm: React.VFC<Props> = ({ form, setForm }) => {
+export const FontFamilyForm: React.VFC<Props> = (props) => {
   return (
     <Select
       label="font family"
@@ -41,11 +40,8 @@ export const FontFamilyForm: React.VFC<Props> = ({ form, setForm }) => {
       data={data}
       searchable
       maxDropdownHeight={400}
-      value={form.fontFamilyId}
-      onChange={(fontFamilyId) => {
-        if (fontFamilyId === null) return
-        setForm((prev) => ({ ...prev, fontFamilyId }))
-      }}
+      value={props.fontFamily}
+      onChange={props.onChange}
     />
   )
 }

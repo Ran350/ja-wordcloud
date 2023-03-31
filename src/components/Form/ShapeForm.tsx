@@ -4,19 +4,17 @@ import { shapes } from 'src/lib/form/data/shape'
 import type { Form } from 'src/lib/form/index.type'
 
 type Props = {
-  form: Form
-  setForm: React.Dispatch<React.SetStateAction<Form>>
+  shape: string
+  onChange: (shape: string) => void
 }
-export const ShapeForm: React.VFC<Props> = ({ form, setForm }) => {
+export const ShapeForm: React.VFC<Props> = (props) => {
   return (
     <Select
       label="shape"
       placeholder="shape"
-      value={`${form.shape}`}
+      value={props.shape}
       data={shapes.map((shape) => ({ value: shape, label: shape }))}
-      onChange={(shape) => {
-        setForm((form) => ({ ...form, fw: shape }))
-      }}
+      onChange={props.onChange}
     />
   )
 }

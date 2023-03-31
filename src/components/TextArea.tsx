@@ -12,7 +12,7 @@ export const TextArea: React.VFC<Props> = ({ sentence, setSentence }) => {
 
   return (
     <div>
-      <Textarea placeholder={sentence} autosize minRows={5} maxRows={8} onChange={onChange} />
+      <Textarea placeholder={sentence} autosize minRows={4} maxRows={5} onChange={onChange} />
     </div>
   )
 }

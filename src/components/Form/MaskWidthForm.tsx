@@ -1,21 +1,9 @@
 import { NumberInput } from '@mantine/core'
 
-import type { Form } from 'src/lib/form/index.type'
-
 type Props = {
-  form: Form
-  setForm: React.Dispatch<React.SetStateAction<Form>>
+  maskWidth: number
+  onChange: (maskWidth: number) => void
 }
-export const MaskWidthForm: React.VFC<Props> = ({ form, setForm }) => {
-  return (
-    <NumberInput
-      label="mask width"
-      placeholder="mask width"
-      value={form.maskGapWidth}
-      onChange={(maskGapWidth) => {
-        if (maskGapWidth === '') return
-        setForm((form) => ({ ...form, maskGapWidth }))
-      }}
-    />
-  )
+export const MaskWidthForm: React.VFC<Props> = (props) => {
+  return <NumberInput label="mask width" placeholder="mask width" value={props.maskWidth} onChange={props.onChange} />
 }

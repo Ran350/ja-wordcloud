@@ -1,4 +1,4 @@
-import { Flex, Header as MHeader } from '@mantine/core'
+import { Anchor, Flex, Header as MHeader, Title } from '@mantine/core'
 
 import { url } from 'src/utils/config'
 
@@ -9,10 +9,10 @@ export const Header: React.VFC = () => {
   return (
     <MHeader height={60} p="xs">
       <Flex align="center" justify="space-between">
-        <p>Japanese Word Cloud</p>
-        <a href={githubURL}>
+        <Title order={2}>Japanese Word Cloud</Title>
+        <Anchor href={githubURL} target="_blank">
           <img src={githubIconURL} alt="GitHub" />
-        </a>
+        </Anchor>
       </Flex>
     </MHeader>
   )

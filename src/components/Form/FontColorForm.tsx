@@ -1,28 +1,17 @@
 import { ColorInput } from '@mantine/core'
 
-import { Label } from '../ui/Label'
-
-import type { Form } from 'src/lib/form/index.type'
-
-type Props = {
-  form: Form
-  setForm: React.Dispatch<React.SetStateAction<Form>>
+type Colors = {
+  color: string
+  onChange: (color: string) => void
 }
-export const FontColorForm: React.VFC<Props> = ({ form, setForm }) => {
+type Props = {
+  colors: Colors[]
+}
+export const FontColorForm: React.VFC<Props> = (props) => {
   return (
     <div>
-      {Array.from({ length: form.colors.length }).map((_, i) => (
-        <ColorInput
-          key={i}
-          color={form.colors[i]}
-          onChange={(color) => {
-            setForm((prev) => {
-              const colors = prev.colors
-              colors[i] = color
-              return { ...prev, colors }
-            })
-          }}
-        />
+      {props.colors.map(({ color, onChange }, i) => (
+        <ColorInput key={i} label={i === 0 ? 'font color' : undefined} color={color} onChange={onChange} />
       ))}
     </div>
   )

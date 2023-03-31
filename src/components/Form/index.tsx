@@ -1,4 +1,4 @@
-import { Flex } from '@mantine/core'
+import { Stack } from '@mantine/core'
 
 import { BackgroundColorForm } from './BackgroundColorForm'
 import { DrawMaskFrom } from './DrawMaskFrom'
@@ -11,25 +11,32 @@ import { MaskWidthForm } from './MaskWidthForm'
 import { RotationRatioForm } from './RotationRatioForm'
 import { ShapeForm } from './ShapeForm'
 
+import { SetFieldValue } from '@mantine/form/lib/types'
 import type { Form } from 'src/lib/form/index.type'
 
 type Props = {
   form: Form
-  setForm: React.Dispatch<React.SetStateAction<Form>>
+  setForm: SetFieldValue<Form>
 }
 export const FormArea: React.VFC<Props> = ({ form, setForm }) => {
   return (
-    <Flex direction="column" gap="md">
-      <FontFamilyForm form={form} setForm={setForm} />
-      <FontWeightForm form={form} setForm={setForm} />
-      <FontColorForm form={form} setForm={setForm} />
-      <BackgroundColorForm form={form} setForm={setForm} />
-      <GridSizeForm form={form} setForm={setForm} />
-      <DrawMaskFrom form={form} setForm={setForm} />
-      <MaskColorForm form={form} setForm={setForm} />
-      <MaskWidthForm form={form} setForm={setForm} />
-      <RotationRatioForm form={form} setForm={setForm} />
-      <ShapeForm form={form} setForm={setForm} />
-    </Flex>
+    <Stack spacing="sm" align="stretch">
+      <FontFamilyForm fontFamily={form.fontFamilyId} onChange={(ff) => setForm('fontFamilyId', ff)} />
+      <FontWeightForm fontWeight={`${form.fontWeight}`} onChange={(fw) => setForm('fontWeight', fw)} />
+      <FontColorForm
+        colors={form.colors.map((color, i) => ({
+          color,
+          onChange: (color) =>
+            setForm('colors', form.colors.map((c, j) => (i === j ? color : c)) as [string, string, string]), // FIXME
+        }))}
+      />
+      <BackgroundColorForm backgroundColor={form.backgroundColor} onChange={(bc) => setForm('backgroundColor', bc)} />
+      <GridSizeForm gridSize={form.gridSize} onChange={(gs) => setForm('gridSize', gs)} />
+      <DrawMaskFrom isDrawMask={form.drawMask} onToggle={() => setForm('drawMask', !form.drawMask)} />
+      <MaskColorForm maskColor={form.maskColor} onChange={(c) => setForm('maskColor', c)} />
+      <MaskWidthForm maskWidth={form.maskGapWidth} onChange={(w) => setForm('maskGapWidth', w)} />
+      <RotationRatioForm rotationRatio={form.rotateRatio} onChange={(r) => setForm('rotateRatio', r)} />
+      <ShapeForm shape={form.shape} onChange={(s) => setForm('shape', s)} />
+    </Stack>
   )
 }

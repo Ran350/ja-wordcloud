@@ -3,19 +3,16 @@ import { NumberInput } from '@mantine/core'
 import type { Form } from 'src/lib/form/index.type'
 
 type Props = {
-  form: Form
-  setForm: React.Dispatch<React.SetStateAction<Form>>
+  rotationRatio: number
+  onChange: (rotationRatio: number) => void
 }
-export const RotationRatioForm: React.VFC<Props> = ({ form, setForm }) => {
+export const RotationRatioForm: React.VFC<Props> = (props) => {
   return (
     <NumberInput
       label="rotation ratio"
       placeholder="rotation ratio"
-      value={form.rotateRatio}
-      onChange={(rotateRatio) => {
-        if (rotateRatio === '') return
-        setForm((form) => ({ ...form, rotateRatio }))
-      }}
+      value={props.rotationRatio}
+      onChange={props.onChange}
     />
   )
 }
