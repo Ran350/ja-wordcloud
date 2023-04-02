@@ -1,6 +1,6 @@
 import { ColorInput } from '@mantine/core'
 
-import type { Form } from 'src/lib/form/index.type'
+import type { Form } from 'src/types/form.type'
 
 type Props = {
   maskColor: string

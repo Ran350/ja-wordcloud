@@ -1,5 +1,5 @@
 // prettier-ignore
-export const stopWords = [
+export const defaultStopWords = [
 // 助詞
 'が', 'の', 'を', 'に', 'へ', 'で', 'と', 'や',
 'ば', 'と', 'し', 'て',

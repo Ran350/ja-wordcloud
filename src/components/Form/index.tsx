@@ -12,7 +12,7 @@ import { RotationRatioForm } from './RotationRatioForm'
 import { ShapeForm } from './ShapeForm'
 
 import { SetFieldValue } from '@mantine/form/lib/types'
-import type { Form } from 'src/lib/form/index.type'
+import type { Form } from 'src/types/form.type'
 
 type Props = {
   form: Form

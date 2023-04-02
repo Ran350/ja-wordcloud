@@ -1,7 +1,7 @@
 import { Label } from '../ui/Label'
 import { Range } from '../ui/Range'
 
-import type { Form } from 'src/lib/form/index.type'
+import type { Form } from 'src/types/form.type'
 
 type Props = {
   form: Form
