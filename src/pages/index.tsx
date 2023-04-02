@@ -1,47 +1,57 @@
-import { AppShell, Box, Button, Container, Flex, ScrollArea, Stack } from '@mantine/core'
+import { AppShell, Button, Container, Flex, Stack } from '@mantine/core'
+import { useForm } from '@mantine/form'
 import { useState } from 'react'
 
-import { Header } from '../components/Header'
-import { TextArea } from '../components/TextArea'
-import { WC } from '../components/WC'
-import { exampleSentence } from '../data/sentence'
-import { initForm } from '../lib/form/initForm'
+import { AsideForm } from 'components/AsideForm'
+import { Header } from 'components/Header'
+import { TextArea } from 'components/TextArea'
+import { WC } from 'components/WC'
+import { defaultForm } from 'constant/defaultForm'
+import { defaultStopWords } from 'constant/defaultStopWords'
+import { exampleSentence } from 'constant/sentence'
 
-import { useForm } from '@mantine/form'
-import { FormArea } from 'src/components/Form'
-import { Form } from 'src/lib/form/index.type'
+import type { Form } from 'types/form.type'
 
-const IndexPage: React.VFC = () => {
+const useWordCloud = () => {
   const { values: form, setFieldValue: setForm } = useForm<Form>({
-    initialValues: initForm,
+    initialValues: defaultForm,
   })
+  const [stopWordList, setStopWordList] = useState(defaultStopWords)
   const [sentence, setSentence] = useState(exampleSentence)
 
-  const [ranCount, setRanCount] = useState(0)
-  const onRun = () => {
-    setRanCount(ranCount + 1)
-  }
+  return { form, setForm, stopWordList, setStopWordList, sentence, setSentence }
+}
+
+const IndexPage: React.VFC = () => {
+  const { form, setForm, stopWordList, setStopWordList, sentence, setSentence } = useWordCloud()
+
+  const [textAreaText, setTextAreaText] = useState(exampleSentence)
+  const generateWordCloud = () => setSentence(textAreaText) // sentenceは遅延評価
+
+  const resetStopWord = () => setStopWordList(defaultStopWords)
 
   return (
-    <AppShell padding="md" header={<Header />}>
-      <Flex>
-        <Container>
-          <Box>
-            <WC sentence={sentence} form={form} ranCount={ranCount} />
-            <TextArea sentence={sentence} setSentence={setSentence} />
-          </Box>
-        </Container>
-
-        <Stack spacing="sm">
-          <ScrollArea h={450}>
-            {/* FIXME: 高さ */}
-            <FormArea form={form} setForm={setForm} />
-          </ScrollArea>
-          <Button size="md" color="green" onClick={onRun}>
-            Run
-          </Button>
+    <AppShell
+      padding="md"
+      header={<Header />}
+      navbar={
+        <AsideForm
+          wcStyleFormProps={{ form, setForm }}
+          stopWordProps={{ stopWordList, onChangeStopWordList: setStopWordList, onClickReset: resetStopWord }}
+        />
+      }
+    >
+      <Container>
+        <Stack style={{ width: '800px' }}>
+          <WC sentence={sentence} stopWordList={stopWordList} wcStyleOption={form} magnification={50} />
+          <TextArea placeholder={exampleSentence} onChangeText={setTextAreaText} />
+          <Flex justify="flex-end">
+            <Button size="md" color="green" onClick={generateWordCloud}>
+              Generate
+            </Button>
+          </Flex>
         </Stack>
-      </Flex>
+      </Container>
     </AppShell>
   )
 }
