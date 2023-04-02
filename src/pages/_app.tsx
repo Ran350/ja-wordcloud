@@ -1,3 +1,4 @@
+import { MantineProvider } from '@mantine/core'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
@@ -11,7 +12,15 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <link rel="apple-touch-icon" href="icons/icon192.png" />
       </Head>
 
-      <Component {...pageProps} />
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          colorScheme: 'light',
+        }}
+      >
+        <Component {...pageProps} />
+      </MantineProvider>
     </div>
   )
 }
