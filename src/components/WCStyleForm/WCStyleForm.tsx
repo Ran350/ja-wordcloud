@@ -18,7 +18,7 @@ type Props = {
   form: Form
   setForm: SetFieldValue<Form>
 }
-export const FormArea: React.VFC<Props> = ({ form, setForm }) => {
+export const WCStyleForm: React.VFC<Props> = ({ form, setForm }) => {
   return (
     <Stack spacing="sm" align="stretch">
       <FontFamilyForm fontFamily={form.fontFamilyId} onChange={(ff) => setForm('fontFamilyId', ff)} />
