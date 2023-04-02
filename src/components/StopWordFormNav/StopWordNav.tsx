@@ -18,7 +18,7 @@ type Props = {
   onChangeStopWordList: (sw: string[]) => void
   onClickReset: () => void
 }
-export const StopWordForm: React.VFC<Props> = ({ stopWordList, onChangeStopWordList, onClickReset }) => {
+export const StopWordNav: React.VFC<Props> = ({ stopWordList, onChangeStopWordList, onClickReset }) => {
   const [text, setText] = useState('')
 
   const addStopWord = () => {
