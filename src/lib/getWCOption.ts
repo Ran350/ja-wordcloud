@@ -1,6 +1,6 @@
-import { fontFamilies } from '../form/data/fontFamily'
-import { Form } from '../form/index.type'
-import { WCOptions } from '../WCOption/index.type'
+import { fontFamilies } from '../constant/fontFamily'
+import { Form } from '../types/form.type'
+import { WCOptions } from '../types/WCOption.type'
 
 type SetColor = (colors: [string, string, string]) => WCOptions['color']
 const setColor: SetColor = (colors) => (word, weight, fontSize) => {
@@ -9,7 +9,7 @@ const setColor: SetColor = (colors) => (word, weight, fontSize) => {
   return colors[2]
 }
 
-export const translateForm2Option = (form: Form): WCOptions => {
+export const getWCToken = (form: Form): WCOptions => {
   return {
     fontFamily: fontFamilies[form.fontFamilyId].css,
     fontWeight: form.fontWeight,
