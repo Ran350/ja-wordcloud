@@ -12,8 +12,7 @@
     "fix:lint": "next lint --dir 'src' --fix",
     "check": "run-p check:*",
     "check:lint": "next lint --dir 'src'",
-    "check:format": "prettier --check --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
-    "check:test": "jest"
+    "check:format": "prettier --check --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -22,6 +21,7 @@
     "@mantine/hooks": "^6.0.5",
     "@tabler/icons-react": "^2.13.1",
     "@tsconfig/strictest": "^2.0.0",
+    "@types/node": "^18.15.11",
     "@types/react": "^18.0.32",
     "@types/wordcloud": "^1.2.0",
     "next": "13.2.4",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "eslint-config-prettier": "^8.8.0",
