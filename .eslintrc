@@ -1,34 +1,24 @@
 {
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-
-    // base
-    "eslint:recommended",
-
-    // React
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-
-    // TypeScript
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-
-    // Prettier integration
-    "prettier"
-  ],
-
+  "root": true,
   "env": {
     "es6": true,
     "browser": true,
     "jest": true,
     "node": true
   },
-
   "settings": {
     "react": { "version": "detect" }
   },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
 
   "rules": {
     "import/prefer-default-export": "off",
