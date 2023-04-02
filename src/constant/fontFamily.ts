@@ -1,5 +1,5 @@
-import type { WCOptions } from 'types/WCOption.type'
 import type { Form } from 'types/form.type'
+import type { WCOptions } from 'types/WCOption.type'
 
 type FontFamily = {
   name: string

@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-import { generateWCOption } from 'lib/getWCOption'
 import { generateWCToken } from 'lib/generateWCToken'
-
+import { generateWCOption } from 'lib/getWCOption'
 import type { Form } from 'types/form.type'
 
 type Props = {

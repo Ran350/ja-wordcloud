@@ -11,7 +11,7 @@ export const Header: React.VFC = () => {
       <Flex justify="space-between" align="center">
         <Title order={3}>Japanese Word Cloud</Title>
         <ActionIcon variant="outline" size="lg" p={3} component="a" href={githubURL}>
-          <Image src={githubIconSrc} />
+          <Image src={githubIconSrc} alt="github" />
         </ActionIcon>
       </Flex>
     </MHeader>

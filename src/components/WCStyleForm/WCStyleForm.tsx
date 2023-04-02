@@ -1,4 +1,5 @@
 import { Navbar, ScrollArea, Stack } from '@mantine/core'
+import type { SetFieldValue } from '@mantine/form/lib/types'
 
 import { BackgroundColorForm } from './BackgroundColorForm'
 import { DrawMaskFrom } from './DrawMaskFrom'
@@ -11,7 +12,6 @@ import { MaskWidthForm } from './MaskWidthForm'
 import { RotationRatioForm } from './RotationRatioForm'
 import { ShapeForm } from './ShapeForm'
 
-import type { SetFieldValue } from '@mantine/form/lib/types'
 import type { Form } from 'types/form.type'
 
 type Props = {

@@ -4,8 +4,8 @@ import { IconX } from '@tabler/icons-react'
 import { useState } from 'react'
 
 import { ClearAllButton } from './ClearAllButton'
-import { ResetButton } from './ResetButton'
 import { RegisterButton } from './RegisterButton'
+import { ResetButton } from './ResetButton'
 
 const BudgeXButton = (
   <ActionIcon size="xs" color="blue" radius="xl" variant="transparent">
@@ -42,7 +42,7 @@ export const StopWordForm: React.VFC<Props> = ({ stopWordList, onChangeStopWordL
       <Navbar.Section grow component={ScrollArea} mt="md">
         <Flex wrap="wrap" gap="xs">
           {stopWordList.map((sw, i) => (
-            <Badge variant="outline" pr={3} rightSection={BudgeXButton} onClick={() => removeStopWord(i)}>
+            <Badge key={sw} variant="outline" pr={3} rightSection={BudgeXButton} onClick={() => removeStopWord(i)}>
               {sw}
             </Badge>
           ))}

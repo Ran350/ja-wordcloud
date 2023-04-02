@@ -9,7 +9,6 @@ import { WC } from 'components/WC'
 import { defaultForm } from 'constant/defaultForm'
 import { defaultStopWords } from 'constant/defaultStopWords'
 import { exampleSentence } from 'constant/sentence'
-
 import type { Form } from 'types/form.type'
 
 const useWordCloud = () => {
