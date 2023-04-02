@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-import { generateTokens } from '~/lib/generateTokens'
-import { generateWCOption } from '~/lib/getWCOption'
+import { generateWCOption } from '~/domain/WCOption/getWCOption'
+import { generateTokens } from '~/domain/wordSegment/generateTokens'
 import type { WCStyleForm } from '~/types/form.type'
 
 type Props = {
