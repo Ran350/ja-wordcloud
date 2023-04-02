@@ -15,10 +15,18 @@ const BudgeXButton = (
 
 type Props = {
   stopWordList: string[]
-  onChangeStopWordList: (sw: string[]) => void
-  onClickReset: () => void
+  resetStopWord: () => void
+  appendStopWord: (...sws: string[]) => void
+  removeStopWord: (index: number) => void
+  setEmptyStopWord: () => void
 }
-export const StopWordNav: React.VFC<Props> = ({ stopWordList, onChangeStopWordList, onClickReset }) => {
+export const StopWordNav: React.VFC<Props> = ({
+  stopWordList,
+  resetStopWord,
+  appendStopWord,
+  removeStopWord,
+  setEmptyStopWord,
+}) => {
   const [text, setText] = useState('')
 
   const addStopWord = () => {
@@ -27,15 +35,9 @@ export const StopWordNav: React.VFC<Props> = ({ stopWordList, onChangeStopWordLi
       .filter((s) => s !== '')
 
       .filter((w) => !stopWordList.includes(w))
-    onChangeStopWordList([...stopWordList, ...new Set(separated)])
+    appendStopWord(...new Set(separated))
     setText('')
   }
-  const removeStopWord = (index: number) => {
-    const removed = stopWordList.filter((_, i) => index !== i)
-    onChangeStopWordList(removed)
-  }
-
-  const clearAll = () => onChangeStopWordList([])
 
   return (
     <>
@@ -65,8 +67,8 @@ export const StopWordNav: React.VFC<Props> = ({ stopWordList, onChangeStopWordLi
             onKeyDown={getHotkeyHandler([['mod+Enter', addStopWord]])}
           />
           <Flex justify="space-between" gap={10}>
-            <ResetButton removeAllStopWord={onClickReset} />
-            <ClearAllButton clearAll={clearAll} />
+            <ResetButton onReset={resetStopWord} />
+            <ClearAllButton onClearAll={setEmptyStopWord} />
           </Flex>
         </Stack>
       </Navbar.Section>

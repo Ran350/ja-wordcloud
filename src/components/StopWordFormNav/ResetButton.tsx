@@ -1,10 +1,10 @@
 import { Button, Center, Modal } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 
-export const ResetButton = ({ removeAllStopWord }: { removeAllStopWord: () => void }) => {
+export const ResetButton = ({ onReset }: { onReset: () => void }) => {
   const [opened, { open, close }] = useDisclosure(false)
   const onClick = () => {
-    removeAllStopWord()
+    onReset()
     close()
   }
   return (

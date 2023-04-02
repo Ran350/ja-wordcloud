@@ -1,10 +1,10 @@
 import { Button, Center, Modal } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 
-export const ClearAllButton = ({ clearAll }: { clearAll: () => void }) => {
+export const ClearAllButton = ({ onClearAll }: { onClearAll: () => void }) => {
   const [opened, { open, close }] = useDisclosure(false)
   const onClick = () => {
-    clearAll()
+    onClearAll()
     close()
   }
   return (

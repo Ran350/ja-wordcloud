@@ -12,8 +12,8 @@ import { MaskWidthForm } from './MaskWidthForm'
 import { RotationRatioForm } from './RotationRatioForm'
 import { ShapeForm } from './ShapeForm'
 
-import type { Color } from '~/types/Color.type'
 import type { WCStyleForm } from '~/domain/WCStyleForm/WCStyleForm.type'
+import type { Color } from '~/types/Color.type'
 
 type Props = {
   form: WCStyleForm
