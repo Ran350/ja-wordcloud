@@ -1,20 +1,20 @@
 import { Navbar, SegmentedControl, type SegmentedControlItem } from '@mantine/core'
 import { type ComponentProps, useState } from 'react'
 
-import { StopWordForm } from './StopWordForm/StopWordForm'
-import { WCStyleForm } from './WCStyleForm/WCStyleForm'
+import { StopWordNav as StopWordFormNav } from './StopWordFormNav/StopWordNav'
+import { WCStyleFormNav } from './WCStyleFormNav/WCStyleNav'
 
 type Props = {
-  wcStyleFormProps: ComponentProps<typeof WCStyleForm>
-  stopWordProps: ComponentProps<typeof StopWordForm>
+  wcStyleFormProps: ComponentProps<typeof WCStyleFormNav>
+  stopWordProps: ComponentProps<typeof StopWordFormNav>
 }
 export const AsideForm: React.VFC<Props> = ({ wcStyleFormProps, stopWordProps }) => {
   type TabSelection = 'wcStyle' | 'stopWord'
   const [section, setSection] = useState<TabSelection>('wcStyle')
 
   const tab = {
-    wcStyle: <WCStyleForm {...wcStyleFormProps} />,
-    stopWord: <StopWordForm {...stopWordProps} />,
+    wcStyle: <WCStyleFormNav {...wcStyleFormProps} />,
+    stopWord: <StopWordFormNav {...stopWordProps} />,
   }
   const controlData: (SegmentedControlItem & { value: TabSelection })[] = [
     { label: 'Style', value: 'wcStyle' },
@@ -22,7 +22,8 @@ export const AsideForm: React.VFC<Props> = ({ wcStyleFormProps, stopWordProps })
   ]
 
   return (
-    <Navbar px="xl" py="md" height={700} width={{ base: 300 }}>
+    // FIXME: heightを画面サイズのN倍で設定したい
+    <Navbar px="xl" py="md" height={600} width={{ base: 300 }}>
       <Navbar.Section>
         <SegmentedControl
           value={section}
