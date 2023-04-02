@@ -1,18 +1,17 @@
 import { Textarea } from '@mantine/core'
 
 type Props = {
-  sentence: string
-  setSentence: (text: string) => void
+  placeholder: string
+  onChangeText: (text: string) => void
 }
-export const TextArea: React.VFC<Props> = ({ sentence, setSentence }) => {
+export const TextArea: React.VFC<Props> = ({ placeholder, onChangeText }) => {
   const onChange = (x: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const text = x.currentTarget.value
-    setSentence(text)
+    onChangeText(x.currentTarget.value)
   }
 
   return (
-    <div>
-      <Textarea placeholder={sentence} autosize minRows={4} maxRows={5} onChange={onChange} />
-    </div>
+    <>
+      <Textarea placeholder={placeholder} autosize minRows={4} maxRows={5} onChange={onChange} />
+    </>
   )
 }
