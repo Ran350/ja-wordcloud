@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 
-import { generateWCOption } from 'lib/getWCOption'
-import type { WCStyleForm } from 'types/form.type'
 import { generateTokens } from '~/lib/generateTokens'
+import { generateWCOption } from '~/lib/getWCOption'
+import type { WCStyleForm } from '~/types/form.type'
 
 type Props = {
   sentence: string

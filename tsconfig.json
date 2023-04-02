@@ -2,10 +2,10 @@
   "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
     "target": "es5",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "tiny-segmenter": ["types/tiny-segmenter"],
-      "~/*": ["*"]
+      "~/*": ["src/*"]
     },
     "typeRoots": ["types", "node_modules/@types"],
     "lib": ["dom", "dom.iterable", "esnext"],

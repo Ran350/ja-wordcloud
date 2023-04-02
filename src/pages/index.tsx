@@ -2,14 +2,14 @@ import { AppShell, Button, Container, Flex, Stack } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { useState } from 'react'
 
-import { AsideForm } from 'components/AsideForm'
-import { Header } from 'components/Header'
-import { TextArea } from 'components/TextArea'
-import { WC } from 'components/WC'
-import { defaultForm } from 'constant/defaultForm'
-import { defaultStopWords } from 'constant/defaultStopWords'
-import { exampleSentence } from 'constant/sentence'
-import type { WCStyleForm } from 'types/form.type'
+import { AsideForm } from '~/components/AsideForm'
+import { Header } from '~/components/Header'
+import { TextArea } from '~/components/TextArea'
+import { WC } from '~/components/WC'
+import { defaultForm } from '~/constant/defaultForm'
+import { defaultStopWords } from '~/constant/defaultStopWords'
+import { exampleSentence } from '~/constant/sentence'
+import type { WCStyleForm } from '~/types/form.type'
 
 const useWordCloud = () => {
   const { values: form, setFieldValue: setForm } = useForm<WCStyleForm>({

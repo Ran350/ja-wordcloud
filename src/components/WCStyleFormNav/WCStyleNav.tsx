@@ -12,8 +12,8 @@ import { MaskWidthForm } from './MaskWidthForm'
 import { RotationRatioForm } from './RotationRatioForm'
 import { ShapeForm } from './ShapeForm'
 
-import type { WCStyleForm } from 'types/form.type'
 import type { Color } from '~/types/Color.type'
+import type { WCStyleForm } from '~/types/form.type'
 
 type Props = {
   form: WCStyleForm
@@ -29,7 +29,7 @@ export const WCStyleFormNav: React.VFC<Props> = ({ form, setForm }) => {
           // FIXME: asアサーションせずにvalidationかける
         />
         <FontWeightForm
-          fontWeight={`${form.fontWeight}`}
+          fontWeight={`${form['fontWeight']}`}
           onChange={(fw) => setForm('fontWeight', fw as WCStyleForm['fontWeight'])}
           // FIXME: asアサーションせずにvalidationかける
         />
@@ -41,20 +41,24 @@ export const WCStyleFormNav: React.VFC<Props> = ({ form, setForm }) => {
           }))}
           // FIXME: asアサーションせずにvalidationかける
         />
-        <BackgroundColorForm color={form.backgroundColor} onChange={(bc) => setForm('backgroundColor', bc)} />
-        <GridSizeForm gridSize={form.gridSize} onChange={(gs) => setForm('gridSize', gs)} />
+        <BackgroundColorForm color={form['backgroundColor']} onChange={(bc) => setForm('backgroundColor', bc)} />
+        <GridSizeForm gridSize={form['gridSize']} onChange={(gs) => setForm('gridSize', gs)} />
         <ShapeForm
-          shape={form.shape}
+          shape={form['shape']}
           onChange={(s) => setForm('shape', s as WCStyleForm['shape'])}
           // FIXME: asアサーションせずにvalidationかける
         />
-        <RotationRatioForm rotationRatio={form.rotateRatio} onChange={(r) => setForm('rotateRatio', r)} />
+        <RotationRatioForm rotationRatio={form['rotateRatio']} onChange={(r) => setForm('rotateRatio', r)} />
 
-        <DrawMaskFrom isDrawMask={form.drawMask} onToggle={() => setForm('drawMask', !form.drawMask)} />
-        <MaskColorForm color={form.maskColor} disabled={!form.drawMask} onChange={(c) => setForm('maskColor', c)} />
+        <DrawMaskFrom isDrawMask={form['drawMask']} onToggle={() => setForm('drawMask', !form['drawMask'])} />
+        <MaskColorForm
+          color={form['maskColor']}
+          disabled={!form['drawMask']}
+          onChange={(c) => setForm('maskColor', c)}
+        />
         <MaskWidthForm
-          maskWidth={form.maskGapWidth}
-          disabled={!form.drawMask}
+          maskWidth={form['maskGapWidth']}
+          disabled={!form['drawMask']}
           onChange={(w) => setForm('maskGapWidth', w)}
         />
       </Stack>

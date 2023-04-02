@@ -1,4 +1,4 @@
-import type { WCStyleForm } from 'types/form.type'
+import type { WCStyleForm } from '~/types/form.type'
 
 export const defaultForm: WCStyleForm = {
   fontFamilyId: '1',

@@ -1,6 +1,6 @@
 import { Select } from '@mantine/core'
 
-import { shapes } from 'constant/shape'
+import { shapes } from '~/constant/shape'
 
 type Props = {
   shape: string
