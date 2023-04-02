@@ -1,6 +1,6 @@
-import type { Form } from 'types/form.type'
+import type { WCStyleForm } from 'types/form.type'
 
-export const defaultForm: Form = {
+export const defaultForm: WCStyleForm = {
   fontFamilyId: '1',
   fontWeight: 'normal',
   // カラーパレット  #f4f7f7 > #8cd790 > #77af9c > #285943

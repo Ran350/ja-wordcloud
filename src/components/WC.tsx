@@ -1,20 +1,20 @@
 import { useEffect, useRef } from 'react'
 
-import { generateWCToken } from 'lib/generateWCToken'
 import { generateWCOption } from 'lib/getWCOption'
-import type { Form } from 'types/form.type'
+import type { WCStyleForm } from 'types/form.type'
+import { generateTokens } from '~/lib/generateTokens'
 
 type Props = {
   sentence: string
   stopWordList: string[]
-  wcStyleOption: Form
+  wcStyleOption: WCStyleForm
   magnification: number
 }
 export const WC: React.VFC<Props> = ({ sentence, stopWordList, wcStyleOption, magnification }) => {
   const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    const token = generateWCToken(sentence, stopWordList)
+    const token = generateTokens(sentence, stopWordList)
     import('wordcloud').then(({ default: WordCloud }) => {
       // 動的importしているのは、wordcloud2.jsがwindow objectを参照しており、Next.jsがSSG/SSRできないため
       if (ref.current === null) return

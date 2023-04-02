@@ -1,11 +1,11 @@
-import type { Form } from 'types/form.type'
+import type { WCStyleForm } from 'types/form.type'
 import type { WCOptions } from 'types/WCOption.type'
 
 type FontFamily = {
   name: string
   css: WCOptions['fontFamily']
 }
-export const fontFamilies: Record<Form['fontFamilyId'], FontFamily> = {
+export const fontFamilies: Record<WCStyleForm['fontFamilyId'], FontFamily> = {
   '1': { name: 'Dela Gothic One ', css: 'font-dela_gothic_one' },
   '2': { name: 'DotGothic16', css: 'font-dot_gothic_16' },
   '3': { name: 'Hachi Maru Pop', css: 'font-hachi_maru_pop' },

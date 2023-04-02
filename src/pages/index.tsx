@@ -9,10 +9,10 @@ import { WC } from 'components/WC'
 import { defaultForm } from 'constant/defaultForm'
 import { defaultStopWords } from 'constant/defaultStopWords'
 import { exampleSentence } from 'constant/sentence'
-import type { Form } from 'types/form.type'
+import type { WCStyleForm } from 'types/form.type'
 
 const useWordCloud = () => {
-  const { values: form, setFieldValue: setForm } = useForm<Form>({
+  const { values: form, setFieldValue: setForm } = useForm<WCStyleForm>({
     initialValues: defaultForm,
   })
   const [stopWordList, setStopWordList] = useState(defaultStopWords)
