@@ -4,11 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
-    "export": "next export",
-    "format": "prettier --check --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx}'",
-    "check": "yarn prettier --check src/ && yarn eslint src/"
+    "build": "next build",
+    "export": "next build && next export",
+    "fix": "run-p fix:*",
+    "fix:format": "prettier --check --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
+    "fix:lint": "next lint --dir 'src' --fix",
+    "check": "run-p check:*",
+    "check:lint": "next lint --dir 'src'",
+    "check:format": "prettier --check --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
+    "check:test": "jest"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -31,6 +36,8 @@
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "eslint-config-prettier": "^8.8.0",
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.7",
+    "typescript": "5.0.3",
+    "yarn-run-all": "^3.1.1"
   }
 }
