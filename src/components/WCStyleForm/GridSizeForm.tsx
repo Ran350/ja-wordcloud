@@ -1,7 +1,5 @@
 import { NumberInput } from '@mantine/core'
 
-import type { Form } from 'src/types/form.type'
-
 type Props = {
   gridSize: number
   onChange: (gridSize: number) => void

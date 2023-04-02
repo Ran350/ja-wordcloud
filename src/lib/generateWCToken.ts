@@ -1,5 +1,5 @@
 import TinySegmenter from 'tiny-segmenter'
-import { ListEntry } from 'wordcloud'
+import type { ListEntry } from 'wordcloud'
 
 const separateWords = (sentence: string): string[] => {
   console.time('seg')

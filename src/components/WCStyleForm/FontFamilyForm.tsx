@@ -1,7 +1,7 @@
 import { Flex, Select, Text } from '@mantine/core'
 import { forwardRef } from 'react'
 
-import { fontFamilies } from 'src/constant/fontFamily'
+import { fontFamilies } from 'constant/fontFamily'
 
 const data = Object.entries(fontFamilies).map(([_id, { name, css }]) => ({
   value: name,

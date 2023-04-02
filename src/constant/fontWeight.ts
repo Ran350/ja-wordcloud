@@ -1,4 +1,4 @@
-import { WCOptions } from '../types/WCOption.type'
+import type { WCOptions } from 'types/WCOption.type'
 
 export const fontWeights: WCOptions['fontWeight'][] = [
   100,

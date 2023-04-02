@@ -1,7 +1,6 @@
 import { Select } from '@mantine/core'
 
-import { shapes } from 'src/constant/shape'
-import type { Form } from 'src/types/form.type'
+import { shapes } from 'constant/shape'
 
 type Props = {
   shape: string

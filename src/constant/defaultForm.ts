@@ -1,4 +1,4 @@
-import { Form } from '../types/form.type'
+import type { Form } from 'types/form.type'
 
 export const defaultForm: Form = {
   fontFamilyId: '1',

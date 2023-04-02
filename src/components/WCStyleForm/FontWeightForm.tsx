@@ -1,6 +1,6 @@
 import { Select } from '@mantine/core'
 
-import { fontWeights } from 'src/constant/fontWeight'
+import { fontWeights } from 'constant/fontWeight'
 
 type Props = {
   fontWeight: string

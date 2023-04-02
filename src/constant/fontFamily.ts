@@ -1,5 +1,5 @@
-import { WCOptions } from '../types/WCOption.type'
-import { Form } from '../types/form.type'
+import type { WCOptions } from 'types/WCOption.type'
+import type { Form } from 'types/form.type'
 
 type FontFamily = {
   name: string
@@ -23,5 +23,3 @@ export const fontFamilies: Record<Form['fontFamilyId'], FontFamily> = {
   '15': { name: 'Train One', css: 'font-train_one' },
   '16': { name: 'Yuji Syuku', css: 'font-yuji_syu' },
 }
-
-export const getFontFamilyName = (id: Form['fontFamilyId']): FontFamily['name'] => fontFamilies[id].name

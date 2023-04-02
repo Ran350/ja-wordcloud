@@ -1,7 +1,5 @@
 import { Switch } from '@mantine/core'
 
-import type { Form } from 'src/types/form.type'
-
 type Props = {
   isDrawMask: boolean
   onToggle: () => void
