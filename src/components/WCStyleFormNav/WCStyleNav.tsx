@@ -13,7 +13,7 @@ import { RotationRatioForm } from './RotationRatioForm'
 import { ShapeForm } from './ShapeForm'
 
 import type { Color } from '~/types/Color.type'
-import type { WCStyleForm } from '~/types/form.type'
+import type { WCStyleForm } from '~/domain/WCStyleForm/WCStyleForm.type'
 
 type Props = {
   form: WCStyleForm

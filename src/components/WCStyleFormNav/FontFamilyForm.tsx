@@ -2,7 +2,7 @@ import { Flex, Select, Text } from '@mantine/core'
 import { forwardRef } from 'react'
 
 import { fontFamilies } from '~/constant/fontFamily'
-import type { WCStyleForm } from '~/types/form.type'
+import type { WCStyleForm } from '~/domain/WCStyleForm/WCStyleForm.type'
 
 type SelectItemProps = {
   label: string
