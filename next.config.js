@@ -1,10 +1,10 @@
-const runtimeCaching = require('next-pwa/cache')
-const withPWA = require('next-pwa')
+/* eslint-disable @typescript-eslint/no-var-requires */
+const urlPrefix = process.env.NODE_ENV === 'production' ? '/ja-wordcloud' : ''
 
-const isProd = process.env.NODE_ENV === 'production'
-const urlPrefix = isProd ? '/ja-wordcloud' : ''
-
-module.exports = withPWA({
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   reactStrictMode: true,
 
   assetPrefix: urlPrefix,
@@ -13,11 +13,6 @@ module.exports = withPWA({
   publicRuntimeConfig: { urlPrefix },
 
   optimizeFonts: false,
+}
 
-  pwa: {
-    dest: 'public',
-    runtimeCaching,
-    scope: urlPrefix,
-    disable: process.env.NODE_ENV === 'development',
-  },
-})
+module.exports = nextConfig
