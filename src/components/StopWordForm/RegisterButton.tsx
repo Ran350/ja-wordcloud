@@ -6,8 +6,9 @@ export const RegisterButton = ({ onClick }: { onClick: () => void }) => {
   const theme = useMantineTheme()
   const os = useOs()
   const [opened, { close, open }] = useDisclosure(false)
+
   return (
-    <Popover width={200} position="top" withArrow shadow="md" opened={opened}>
+    <Popover width={100} position="top" withArrow shadow="md" opened={opened}>
       <Popover.Target>
         <ActionIcon
           size={32}
@@ -21,8 +22,9 @@ export const RegisterButton = ({ onClick }: { onClick: () => void }) => {
           <IconArrowRight size="1.1rem" stroke={1.5} />
         </ActionIcon>
       </Popover.Target>
+
       <Popover.Dropdown sx={{ pointerEvents: 'none' }} style={{ backgroundColor: theme.colors.gray[1] }}>
-        <Text size="sm">Add stop word by press</Text>
+        <Text size="sm">Add stop word</Text>
         <Center>
           <Code color="gray">{os === 'macos' ? '⌘' : 'Ctrl'}</Code>
           <Space w="xs" />
