@@ -1401,6 +1401,19 @@
     ejs "^2.6.1"
     magic-string "^0.25.0"
 
+"@tabler/icons-react@^2.13.1":
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-react/-/icons-react-2.13.1.tgz#9cead65d6208bd4eb3d33ed8d0906d87c8b2d39b"
+  integrity sha512-YPqwdEj5T/ld5Ub00yY96rbJbys5IrmssG8f+mzSUaj3zic4DEezZhRRslRk/9gnVeUW3Qfi4p16tiBdBMdxFQ==
+  dependencies:
+    "@tabler/icons" "2.13.1"
+    prop-types "^15.7.2"
+
+"@tabler/icons@2.13.1":
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.13.1.tgz#5bfff89d595a3553ddc7ff8bb92530c5fe7ff26f"
+  integrity sha512-hQkYW9+tnRUlnm3WDpNGLEB2FS6gyMdDb7eubmGjaWOtc9SK4CdBus465UGfx3M8FahlcOoS5BdzuaABrl/OMw==
+
 "@tsconfig/strictest@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@tsconfig/strictest/-/strictest-2.0.0.tgz#9528a6298aa28ecc93b0c4c4e9ea6aac813779b5"
