@@ -13,7 +13,7 @@ const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(function SelectIt
     <div ref={ref} {...others}>
       <Flex justify="space-between">
         <Text>{label}</Text>
-        <Text style={{ fontFamily: css }}>サンプル</Text>
+        <Text sx={{ fontFamily: css }}>サンプル</Text>
       </Flex>
     </div>
   )

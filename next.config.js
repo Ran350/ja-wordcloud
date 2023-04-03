@@ -12,7 +12,7 @@ const nextConfig = {
   trailingSlash: true,
   publicRuntimeConfig: { urlPrefix },
 
-  optimizeFonts: false,
+  optimizeFonts: true,
 }
 
 module.exports = nextConfig
