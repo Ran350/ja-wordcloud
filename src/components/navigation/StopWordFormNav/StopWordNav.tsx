@@ -50,9 +50,9 @@ export const StopWordFormNav = ({ stopWord }: Props) => {
       <Navbar.Section mt="xl">
         <Stack>
           <Textarea
-            label="Stop Word"
-            description="改行区切りで複数のstop wordを一括挿入できます"
-            placeholder="new stop word"
+            label="ストップワード"
+            description="改行区切りで複数のストップワードを追加できます"
+            placeholder="新しいストップワード"
             radius="xl"
             minRows={1}
             autosize

@@ -29,7 +29,7 @@ const IndexPage = () => {
           <TextArea placeholder={exampleSentence} onChangeText={setTextAreaText} />
           <Flex justify="flex-end">
             <Button size="md" color="green" onClick={generateWordCloud}>
-              Generate
+              生成する
             </Button>
           </Flex>
         </Stack>

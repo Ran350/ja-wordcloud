@@ -9,7 +9,7 @@ export const RotationStepForm = ({ step, onChange }: Props) => {
     <Slider
       value={step}
       onChange={onChange}
-      label="Rotation Step"
+      label="ワードの回転ステップ"
       marks={[
         { value: 20, label: '20%' },
         { value: 50, label: '50%' },

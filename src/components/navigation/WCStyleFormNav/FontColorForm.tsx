@@ -13,7 +13,7 @@ export const FontColorForm = (props: Props) => {
       {props.colors.map(({ color, onChange }, i) => (
         <ColorInput
           key={i}
-          label={i === 0 ? 'font color' : undefined}
+          label={i === 0 ? 'フォントの色' : undefined}
           value={color}
           color={color}
           onChangeEnd={onChange}

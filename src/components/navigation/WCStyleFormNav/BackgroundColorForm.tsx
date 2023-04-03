@@ -2,8 +2,8 @@ import { ColorInput } from '@mantine/core'
 
 type Props = {
   color: string
-  onChange: (backgroundColor: string) => void
+  onChange: (color: string) => void
 }
 export const BackgroundColorForm = (props: Props) => {
-  return <ColorInput label="background color" value={props.color} color={props.color} onChangeEnd={props.onChange} />
+  return <ColorInput label="背景色" value={props.color} color={props.color} onChangeEnd={props.onChange} />
 }

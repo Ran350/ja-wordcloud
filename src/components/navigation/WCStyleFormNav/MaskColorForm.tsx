@@ -6,5 +6,5 @@ type Props = {
   onChange: (color: string) => void
 }
 export const MaskColorForm = ({ color, disabled, onChange }: Props) => {
-  return <ColorInput disabled={disabled} label="mask color" value={color} color={color} onChangeEnd={onChange} />
+  return <ColorInput disabled={disabled} label="マスクの色" value={color} color={color} onChangeEnd={onChange} />
 }
