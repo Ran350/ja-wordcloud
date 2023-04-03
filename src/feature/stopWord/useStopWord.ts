@@ -3,17 +3,17 @@ import { useListState } from '@mantine/hooks'
 import { defaultStopWords } from '~/feature/stopWord/defaultStopWords'
 
 export const useStopWord = () => {
-  const [stopWordList, handler] = useListState(defaultStopWords)
-  const resetStopWord = () => handler.setState(defaultStopWords)
-  const appendStopWord = handler.append
-  const removeStopWord = (index: number) => handler.remove(index)
-  const setEmptyStopWord = () => handler.setState([])
+  const [list, handler] = useListState(defaultStopWords)
+  const reset = () => handler.setState(defaultStopWords)
+  const append = handler.append
+  const remove = (index: number) => handler.remove(index)
+  const setEmpty = () => handler.setState([])
 
   return {
-    stopWordList,
-    resetStopWord,
-    appendStopWord,
-    removeStopWord,
-    setEmptyStopWord,
+    list,
+    reset,
+    append,
+    remove,
+    setEmpty,
   }
 }
