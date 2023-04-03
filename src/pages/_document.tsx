@@ -1,10 +1,19 @@
-import { createGetInitialProps } from '@mantine/next'
-import Document, { Head, Html, Main, NextScript } from 'next/document'
+import { ServerStyles, createStylesServer } from '@mantine/next'
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
 
-const getInitialProps = createGetInitialProps()
+const stylesServer = createStylesServer()
 
 export default class _Document extends Document {
-  static override getInitialProps = getInitialProps
+  static override async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx)
+
+    ctx.res?.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
+
+    return {
+      ...initialProps,
+      styles: [initialProps.styles, <ServerStyles html={initialProps.html} server={stylesServer} key="styles" />],
+    }
+  }
 
   override render() {
     return (
@@ -22,6 +31,10 @@ export default class _Document extends Document {
             href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Hachi+Maru+Pop&family=Kaisei+Tokumin:wght@800&family=Kiwi+Maru:wght@500&family=M+PLUS+1:wght@700&family=M+PLUS+Rounded+1c:wght@800&family=Mochiy+Pop+One&family=Noto+Sans+JP:wght@700&family=Noto+Serif+JP:wght@900&family=Potta+One&family=Rampart+One&family=RocknRoll+One&family=Sawarabi+Mincho&family=Train+One&family=Yuji+Syuku&display=swap"
             rel="stylesheet"
           />
+          <meta
+            name="description"
+            content="Author: Ran350, WordCloud generator for Japanese, many selectable style option, serverless, generate by wordcloud2.js, split by TinySegmenter"
+          ></meta>
         </Head>
 
         <body>

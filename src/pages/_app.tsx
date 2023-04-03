@@ -6,6 +6,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <div>
       <Head>
+        <title>Japanese WordCloud</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <meta name="theme-color" content="#285943" />
         <link rel="manifest" href="manifest.webmanifest" />
