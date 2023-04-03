@@ -10,13 +10,13 @@ export const ResetButton = ({ onReset }: { onReset: () => void }) => {
   return (
     <>
       <Button compact fullWidth variant="outline" color="gray" onClick={open}>
-        Reset
+        初期化する
       </Button>
-      <Modal opened={opened} onClose={close} title="Confirm">
-        Are you sure you want to reset stop words?
+      <Modal opened={opened} onClose={close} title="確認">
+        ストップワードの登録を初期化しますか？
         <Center mt="lg">
           <Button variant="filled" color="red" onClick={onClick}>
-            RESET
+            初期化する
           </Button>
         </Center>
       </Modal>

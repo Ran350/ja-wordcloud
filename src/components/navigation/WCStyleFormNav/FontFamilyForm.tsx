@@ -26,8 +26,8 @@ type Props = {
 export const FontFamilyForm = ({ fontFamilyId, onChange }: Props) => {
   return (
     <Select
-      label="font family"
-      placeholder="font family"
+      label="フォント"
+      placeholder="フォント"
       itemComponent={SelectItem}
       maxDropdownHeight={400}
       data={Object.entries(fontFamilies).map(([id, { name, css }]) => ({

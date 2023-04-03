@@ -6,7 +6,7 @@ type Props = {
 }
 export const RotationRatioForm = (props: Props) => {
   return (
-    <Input.Wrapper label="rotation ratio">
+    <Input.Wrapper label="ワードの回転確率">
       <Slider
         defaultValue={0}
         label={(value) => `${value}%`}

@@ -24,7 +24,7 @@ export const RegisterButton = ({ onClick }: { onClick: () => void }) => {
       </Popover.Target>
 
       <Popover.Dropdown sx={{ pointerEvents: 'none' }} style={{ backgroundColor: theme.colors.gray[1] }}>
-        <Text size="sm">Add stop word</Text>
+        <Text size="sm">ストップワードを追加する</Text>
         <Center>
           <Code color="gray">{os === 'macos' ? '⌘' : 'Ctrl'}</Code>
           <Space w="xs" />

@@ -9,8 +9,8 @@ type Props = {
 export const FontWeightForm = (props: Props) => {
   return (
     <Select
-      label="font weight"
-      placeholder="font weight"
+      label="フォントの太さ"
+      placeholder="フォントの太さ"
       value={props.fontWeight}
       data={fontWeights.map((fw) => ({ value: `${fw}`, label: `${fw}` }))}
       onChange={props.onChange}

@@ -9,7 +9,7 @@ export const RotationRangeForm = ({ range, onChange }: Props) => {
     <RangeSlider
       value={range}
       onChange={onChange}
-      label="Rotation Range"
+      label="ワードの回転角度"
       marks={[
         { value: 20, label: '20%' },
         { value: 50, label: '50%' },

@@ -10,13 +10,13 @@ export const ClearAllButton = ({ onClearAll }: { onClearAll: () => void }) => {
   return (
     <>
       <Button compact fullWidth variant="outline" color="gray" onClick={open}>
-        Clear All
+        すべて削除する
       </Button>
-      <Modal opened={opened} onClose={close} title="Confirm">
-        Are you sure you want to clear all stop words?
+      <Modal opened={opened} onClose={close} title="確認">
+        ストップワードをすべて削除しますか？
         <Center mt="lg">
           <Button variant="filled" color="red" onClick={onClick}>
-            Clear All
+            すべて削除する
           </Button>
         </Center>
       </Modal>

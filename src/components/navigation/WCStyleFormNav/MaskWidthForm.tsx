@@ -8,8 +8,8 @@ type Props = {
 export const MaskWidthForm = ({ maskWidth, disabled, onChange }: Props) => {
   return (
     <NumberInput
-      label="mask width"
-      placeholder="mask width"
+      label="マスクの大きさ"
+      placeholder="マスクの大きさ"
       disabled={disabled}
       value={maskWidth}
       onChange={onChange}

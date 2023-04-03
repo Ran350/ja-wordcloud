@@ -9,8 +9,8 @@ type Props = {
 export const ShapeForm = (props: Props) => {
   return (
     <Select
-      label="shape"
-      placeholder="shape"
+      label="クラウドの形状"
+      placeholder="クラウドの形状"
       value={props.shape}
       data={shapes.map((shape) => ({ value: shape, label: shape }))}
       onChange={props.onChange}

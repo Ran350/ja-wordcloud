@@ -5,5 +5,12 @@ type Props = {
   onChange: (gridSize: number) => void
 }
 export const GridSizeForm = (props: Props) => {
-  return <NumberInput label="grid size" placeholder="grid size" value={props.gridSize} onChange={props.onChange} />
+  return (
+    <NumberInput
+      label="グリッドの大きさ"
+      placeholder="グリッドの大きさ"
+      value={props.gridSize}
+      onChange={props.onChange}
+    />
+  )
 }

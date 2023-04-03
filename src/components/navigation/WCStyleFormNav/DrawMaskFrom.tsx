@@ -6,5 +6,5 @@ type Props = {
 }
 
 export const DrawMaskFrom = (props: Props) => {
-  return <Switch labelPosition="left" label="draw mask" checked={props.isDrawMask} onChange={props.onToggle} />
+  return <Switch labelPosition="left" label="グリッドのマスク" checked={props.isDrawMask} onChange={props.onToggle} />
 }
