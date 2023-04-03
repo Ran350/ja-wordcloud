@@ -1,21 +1,26 @@
 {
+  "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
     "target": "es5",
-    "baseUrl": "./",
-    "paths": { "tiny-segmenter": ["types/tiny-segmenter"] },
+    "baseUrl": ".",
+    "paths": {
+      "tiny-segmenter": ["types/tiny-segmenter"],
+      "~/*": ["src/*"]
+    },
     "typeRoots": ["types", "node_modules/@types"],
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
+    "module": "esnext",
+    "downlevelIteration": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "incremental": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "verbatimModuleSyntax": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

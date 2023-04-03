@@ -1,20 +1,19 @@
-import { url } from 'src/utils/config'
+import { Anchor, Flex, Header as MHeader, Title } from '@mantine/core'
+
+import { GithubIcon } from './icon/GitHubIcon'
 
 export const Header: React.VFC = () => {
-  const title = 'Japanese Word Cloud'
-
-  const githubURL = 'https://github.com/ran350/ja-wordcloud'
-  const githubIcon = {
-    path: url('/icons/GitHub.svg'),
-    alt: 'GitHub',
-  }
-
   return (
-    <header className="px-16 py-2 border-b border-gray-200 w-full flex justify-between">
-      <p className="text-2xl text-gray-600 font-noto_sans_jp">{title}</p>
-      <a href={githubURL} className="text-red-400">
-        <img src={githubIcon.path} alt={githubIcon.alt} className="w-6 h-full align-middle" />
-      </a>
-    </header>
+    <MHeader height={60} p="xs">
+      <Flex justify="space-between" align="center">
+        <Title order={3}>
+          <Anchor href="https://ran350.github.io/ja-wordcloud/" color="gray.7" underline={false}>
+            Japanese Word Cloud
+          </Anchor>
+        </Title>
+        <Anchor href="https://github.com/ran350/ja-wordcloud"></Anchor>
+        <GithubIcon size={30} />
+      </Flex>
+    </MHeader>
   )
 }

@@ -1,6 +1,6 @@
-import { AppProps } from 'next/app'
+import { MantineProvider } from '@mantine/core'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -12,7 +12,19 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <link rel="apple-touch-icon" href="icons/icon192.png" />
       </Head>
 
-      <Component {...pageProps} />
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          colorScheme: 'light',
+          headings: {
+            fontWeight: 700,
+            fontFamily: "'Noto Sans JP', sans-serif",
+          },
+        }}
+      >
+        <Component {...pageProps} />
+      </MantineProvider>
     </div>
   )
 }
