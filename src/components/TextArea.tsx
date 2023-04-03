@@ -4,7 +4,7 @@ type Props = {
   placeholder: string
   onChangeText: (text: string) => void
 }
-export const TextArea: React.VFC<Props> = ({ placeholder, onChangeText }) => {
+export const TextArea = ({ placeholder, onChangeText }: Props) => {
   const onChange = (x: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChangeText(x.currentTarget.value)
   }

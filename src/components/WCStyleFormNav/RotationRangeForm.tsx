@@ -4,7 +4,7 @@ type Props = {
   range: [number, number]
   onChange: (range: [number, number]) => void
 }
-export const RotationRangeForm: React.VFC<Props> = ({ range, onChange }) => {
+export const RotationRangeForm = ({ range, onChange }: Props) => {
   return (
     <RangeSlider
       value={range}

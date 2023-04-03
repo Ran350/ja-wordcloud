@@ -6,7 +6,7 @@ type Props = {
   shape: string
   onChange: (shape: string) => void
 }
-export const ShapeForm: React.VFC<Props> = (props) => {
+export const ShapeForm = (props: Props) => {
   return (
     <Select
       label="shape"

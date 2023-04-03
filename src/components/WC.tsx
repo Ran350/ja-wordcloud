@@ -10,7 +10,7 @@ type Props = {
   wcStyleOption: WCStyleForm
   magnification: number
 }
-export const WC: React.VFC<Props> = ({ sentence, stopWordList, wcStyleOption, magnification }) => {
+export const WC = ({ sentence, stopWordList, wcStyleOption, magnification }: Props) => {
   const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {

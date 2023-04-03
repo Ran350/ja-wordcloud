@@ -5,6 +5,6 @@ type Props = {
   color: string
   onChange: (color: string) => void
 }
-export const MaskColorForm: React.VFC<Props> = ({ color, disabled, onChange }) => {
+export const MaskColorForm = ({ color, disabled, onChange }: Props) => {
   return <ColorInput disabled={disabled} label="mask color" value={color} color={color} onChangeEnd={onChange} />
 }

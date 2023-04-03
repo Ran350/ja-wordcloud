@@ -20,13 +20,13 @@ type Props = {
   removeStopWord: (index: number) => void
   setEmptyStopWord: () => void
 }
-export const StopWordNav: React.VFC<Props> = ({
+export const StopWordNav = ({
   stopWordList,
   resetStopWord,
   appendStopWord,
   removeStopWord,
   setEmptyStopWord,
-}) => {
+}: Props) => {
   const [text, setText] = useState('')
 
   const addStopWord = () => {

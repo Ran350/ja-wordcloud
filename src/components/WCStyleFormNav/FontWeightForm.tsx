@@ -6,7 +6,7 @@ type Props = {
   fontWeight: string
   onChange: (fontWeight: string) => void
 }
-export const FontWeightForm: React.VFC<Props> = (props) => {
+export const FontWeightForm = (props: Props) => {
   return (
     <Select
       label="font weight"

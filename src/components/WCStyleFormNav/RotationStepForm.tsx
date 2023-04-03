@@ -4,7 +4,7 @@ type Props = {
   step: number
   onChange: (range: number) => void
 }
-export const RotationStepForm: React.VFC<Props> = ({ step, onChange }) => {
+export const RotationStepForm = ({ step, onChange }: Props) => {
   return (
     <Slider
       value={step}

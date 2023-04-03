@@ -4,7 +4,7 @@ type Props = {
   rotationRatio: number
   onChange: (rotationRatio: number) => void
 }
-export const RotationRatioForm: React.VFC<Props> = (props) => {
+export const RotationRatioForm = (props: Props) => {
   return (
     <Input.Wrapper label="rotation ratio">
       <Slider
