@@ -16,7 +16,7 @@ export const FontColorForm: React.VFC<Props> = (props) => {
           label={i === 0 ? 'font color' : undefined}
           value={color}
           color={color}
-          onChange={onChange}
+          onChangeEnd={onChange}
         />
       ))}
     </Stack>
