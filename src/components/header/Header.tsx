@@ -1,6 +1,6 @@
 import { Anchor, Flex, Header as MHeader, Title } from '@mantine/core'
 
-import { GithubIcon } from './icon/GitHubIcon'
+import { GithubIcon } from '../icon/GitHubIcon'
 
 export const Header = () => {
   return (

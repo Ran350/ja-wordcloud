@@ -1,5 +1,5 @@
-import type { WCOptions } from '~/domain/WCOption/WCOption.type'
-import type { WCStyleForm } from '~/domain/WCStyleForm/WCStyleForm.type'
+import type { WCOptions } from '~/feature/WCOption/WCOption.type'
+import type { WCStyleForm } from '~/feature/WCStyleForm/WCStyleForm.type'
 
 type FontFamily = {
   name: string

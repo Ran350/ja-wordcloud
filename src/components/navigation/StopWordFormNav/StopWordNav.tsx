@@ -14,19 +14,15 @@ const BudgeXButton = (
 )
 
 type Props = {
-  stopWordList: string[]
-  resetStopWord: () => void
-  appendStopWord: (...sws: string[]) => void
-  removeStopWord: (index: number) => void
-  setEmptyStopWord: () => void
+  stopWord: {
+    list: string[]
+    reset: () => void
+    append: (...sws: string[]) => void
+    remove: (index: number) => void
+    setEmpty: () => void
+  }
 }
-export const StopWordNav = ({
-  stopWordList,
-  resetStopWord,
-  appendStopWord,
-  removeStopWord,
-  setEmptyStopWord,
-}: Props) => {
+export const StopWordFormNav = ({ stopWord }: Props) => {
   const [text, setText] = useState('')
 
   const addStopWord = () => {
@@ -34,8 +30,8 @@ export const StopWordNav = ({
       .split('\n')
       .filter((s) => s !== '')
 
-      .filter((w) => !stopWordList.includes(w))
-    appendStopWord(...new Set(separated))
+      .filter((w) => !stopWord.list.includes(w))
+    stopWord.append(...new Set(separated))
     setText('')
   }
 
@@ -43,8 +39,8 @@ export const StopWordNav = ({
     <>
       <Navbar.Section grow component={ScrollArea} mt="md">
         <Flex wrap="wrap" gap="xs">
-          {stopWordList.map((sw, i) => (
-            <Badge key={sw} variant="outline" pr={3} rightSection={BudgeXButton} onClick={() => removeStopWord(i)}>
+          {stopWord.list.map((sw, i) => (
+            <Badge key={sw} variant="outline" pr={3} rightSection={BudgeXButton} onClick={() => stopWord.remove(i)}>
               {sw}
             </Badge>
           ))}
@@ -67,8 +63,8 @@ export const StopWordNav = ({
             onKeyDown={getHotkeyHandler([['mod+Enter', addStopWord]])}
           />
           <Flex justify="space-between" gap={10}>
-            <ResetButton onReset={resetStopWord} />
-            <ClearAllButton onClearAll={setEmptyStopWord} />
+            <ResetButton onReset={stopWord.reset} />
+            <ClearAllButton onClearAll={stopWord.setEmpty} />
           </Flex>
         </Stack>
       </Navbar.Section>
