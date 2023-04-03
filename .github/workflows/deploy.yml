@@ -30,9 +30,6 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Build next
-        run: yarn build
-
       - name: Export to Static Pages
         run: yarn export
 
