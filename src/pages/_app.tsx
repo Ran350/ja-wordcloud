@@ -17,6 +17,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         withNormalizeCSS
         theme={{
           colorScheme: 'light',
+          headings: {
+            fontWeight: 700,
+            fontFamily: "'Noto Sans JP', sans-serif",
+          },
         }}
       >
         <Component {...pageProps} />

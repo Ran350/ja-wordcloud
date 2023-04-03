@@ -7,7 +7,7 @@ export const Header: React.VFC = () => {
     <MHeader height={60} p="xs">
       <Flex justify="space-between" align="center">
         <Title order={3}>
-          <Anchor href="https://ran350.github.io/ja-wordcloud/" color="gray.7">
+          <Anchor href="https://ran350.github.io/ja-wordcloud/" color="gray.7" underline={false}>
             Japanese Word Cloud
           </Anchor>
         </Title>
