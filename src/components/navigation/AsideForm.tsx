@@ -1,7 +1,7 @@
 import { Navbar, SegmentedControl, type SegmentedControlItem } from '@mantine/core'
 import { type ComponentProps, useState } from 'react'
 
-import { StopWordNav as StopWordFormNav } from './StopWordFormNav/StopWordNav'
+import { StopWordFormNav } from './StopWordFormNav/StopWordNav'
 import { WCStyleFormNav } from './WCStyleFormNav/WCStyleNav'
 
 type Props = {
@@ -28,6 +28,7 @@ export const AsideForm = ({ wcStyleFormProps, stopWordProps }: Props) => {
         <SegmentedControl
           value={section}
           onChange={(value: TabSelection) => setSection(value)}
+          // FIXME: assert function
           transitionTimingFunction="ease"
           fullWidth
           data={controlData}

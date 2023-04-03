@@ -20,7 +20,7 @@ type Props = {
   removeStopWord: (index: number) => void
   setEmptyStopWord: () => void
 }
-export const StopWordNav = ({
+export const StopWordFormNav = ({
   stopWordList,
   resetStopWord,
   appendStopWord,

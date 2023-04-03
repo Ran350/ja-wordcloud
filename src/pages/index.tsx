@@ -1,13 +1,13 @@
 import { AppShell, Button, Center, Flex, Stack } from '@mantine/core'
 import { useState } from 'react'
 
-import { AsideForm } from '~/components/AsideForm'
-import { Header } from '~/components/Header'
+import { Header } from '~/components/header/Header'
+import { AsideForm } from '~/components/navigation/AsideForm'
 import { TextArea } from '~/components/TextArea'
 import { WC } from '~/components/WC'
 import { exampleSentence } from '~/constant/sentence'
-import { useStopWord } from '~/domain/stopWord/useStopWord'
-import { useWCStyleForm } from '~/domain/WCStyleForm/useWCStyleForm'
+import { useStopWord } from '~/feature/stopWord/useStopWord'
+import { useWCStyleForm } from '~/feature/WCStyleForm/useWCStyleForm'
 
 const IndexPage = () => {
   const { form, setForm } = useWCStyleForm()
