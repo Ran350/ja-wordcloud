@@ -1,6 +1,6 @@
 import { useListState } from '@mantine/hooks'
 
-import { defaultStopWords } from '~/domain/stopWord/defaultStopWords'
+import { defaultStopWords } from '~/feature/stopWord/defaultStopWords'
 
 export const useStopWord = () => {
   const [stopWordList, handler] = useListState(defaultStopWords)

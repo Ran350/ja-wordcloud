@@ -1,4 +1,4 @@
-import type { WCOptions } from '~/domain/WCOption/WCOption.type'
+import type { WCOptions } from '~/feature/WCOption/WCOption.type'
 
 export const shapes: WCOptions['shape'][] = [
   'circle',
