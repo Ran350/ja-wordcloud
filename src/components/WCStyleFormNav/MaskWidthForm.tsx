@@ -5,7 +5,7 @@ type Props = {
   disabled: boolean
   onChange: (maskWidth: number) => void
 }
-export const MaskWidthForm: React.VFC<Props> = ({ maskWidth, disabled, onChange }) => {
+export const MaskWidthForm = ({ maskWidth, disabled, onChange }: Props) => {
   return (
     <NumberInput
       label="mask width"

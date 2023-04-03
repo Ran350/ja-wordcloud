@@ -2,7 +2,7 @@ import { Anchor, Flex, Header as MHeader, Title } from '@mantine/core'
 
 import { GithubIcon } from './icon/GitHubIcon'
 
-export const Header: React.VFC = () => {
+export const Header = () => {
   return (
     <MHeader height={60} p="xs">
       <Flex justify="space-between" align="center">

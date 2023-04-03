@@ -9,7 +9,7 @@ import { exampleSentence } from '~/constant/sentence'
 import { useStopWord } from '~/domain/stopWord/useStopWord'
 import { useWCStyleForm } from '~/domain/WCStyleForm/useWCStyleForm'
 
-const IndexPage: React.VFC = () => {
+const IndexPage = () => {
   const { form, setForm } = useWCStyleForm()
   const { stopWordList, resetStopWord, appendStopWord, removeStopWord, setEmptyStopWord } = useStopWord()
 

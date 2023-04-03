@@ -19,7 +19,7 @@ type Props = {
   form: WCStyleForm
   setForm: SetFieldValue<WCStyleForm>
 }
-export const WCStyleFormNav: React.VFC<Props> = ({ form, setForm }) => {
+export const WCStyleFormNav = ({ form, setForm }: Props) => {
   return (
     <Navbar.Section grow component={ScrollArea} mt="md">
       <Stack spacing="sm" align="stretch">

@@ -7,7 +7,7 @@ type Colors = {
 type Props = {
   colors: Colors[]
 }
-export const FontColorForm: React.VFC<Props> = (props) => {
+export const FontColorForm = (props: Props) => {
   return (
     <Stack spacing="xs">
       {props.colors.map(({ color, onChange }, i) => (
@@ -16,7 +16,7 @@ export const FontColorForm: React.VFC<Props> = (props) => {
           label={i === 0 ? 'font color' : undefined}
           value={color}
           color={color}
-          onChange={onChange}
+          onChangeEnd={onChange}
         />
       ))}
     </Stack>

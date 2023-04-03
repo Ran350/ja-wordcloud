@@ -8,7 +8,7 @@ type Props = {
   wcStyleFormProps: ComponentProps<typeof WCStyleFormNav>
   stopWordProps: ComponentProps<typeof StopWordFormNav>
 }
-export const AsideForm: React.VFC<Props> = ({ wcStyleFormProps, stopWordProps }) => {
+export const AsideForm = ({ wcStyleFormProps, stopWordProps }: Props) => {
   type TabSelection = 'wcStyle' | 'stopWord'
   const [section, setSection] = useState<TabSelection>('wcStyle')
 

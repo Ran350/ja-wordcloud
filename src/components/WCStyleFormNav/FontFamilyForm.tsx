@@ -23,7 +23,7 @@ type Props = {
   fontFamilyId: WCStyleForm['fontFamilyId']
   onChange: (value: string) => void
 }
-export const FontFamilyForm: React.VFC<Props> = ({ fontFamilyId, onChange }) => {
+export const FontFamilyForm = ({ fontFamilyId, onChange }: Props) => {
   return (
     <Select
       label="font family"
