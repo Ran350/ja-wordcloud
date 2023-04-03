@@ -34,9 +34,7 @@ export const AsideForm: React.VFC<Props> = ({ wcStyleFormProps, stopWordProps })
         />
       </Navbar.Section>
 
-      {/* <Navbar.Section grow component={ScrollArea} mt="md"> */}
       {tab[section]}
-      {/* </Navbar.Section> */}
     </Navbar>
   )
 }

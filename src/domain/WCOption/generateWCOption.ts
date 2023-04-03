@@ -17,6 +17,7 @@ const setColor =
   }
 
 export const generateWCOption = (form: Form): WCOptions => {
+  console.log(form)
   return {
     ...form,
     fontFamily: fontFamilies[form.fontFamilyId].css,

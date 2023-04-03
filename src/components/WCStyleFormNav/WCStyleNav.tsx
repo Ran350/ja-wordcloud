@@ -48,6 +48,11 @@ export const WCStyleFormNav: React.VFC<Props> = ({ form, setForm }) => {
           onChange={(s) => setForm('shape', s as WCStyleForm['shape'])}
           // FIXME: asアサーションせずにvalidationかける
         />
+
+        {/* TODO: MinRotationForm */}
+        {/* TODO: axRotationForm */}
+        {/* TODO: RotationStepsForm */}
+
         <RotationRatioForm rotationRatio={form['rotateRatio']} onChange={(r) => setForm('rotateRatio', r)} />
 
         <DrawMaskFrom isDrawMask={form['drawMask']} onToggle={() => setForm('drawMask', !form['drawMask'])} />
