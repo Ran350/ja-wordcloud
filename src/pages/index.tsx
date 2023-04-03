@@ -28,7 +28,7 @@ const IndexPage = () => {
           <WC sentence={sentence} stopWordList={stopWord.list} wcStyleOption={form} magnification={50} />
           <TextArea placeholder={exampleSentence} onChangeText={setTextAreaText} />
           <Flex justify="flex-end">
-            <Button size="md" color="green" onClick={generateWordCloud}>
+            <Button size="md" color="green.9" onClick={generateWordCloud}>
               生成する
             </Button>
           </Flex>
