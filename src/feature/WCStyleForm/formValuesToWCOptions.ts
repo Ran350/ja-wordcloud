@@ -2,19 +2,19 @@ import { type WcStyleType } from './schema'
 
 import type { WCOptions } from '~/feature/WCOptions/WCOptions.type'
 
-const setColor =
+const colorsToColor =
   (colors: WcStyleType['colors']): WCOptions['color'] =>
-  (_word: string, _weight: number | string, fontSize: number) => {
-    if (fontSize >= 32) return colors[0]
+  (_word, _weight, fontSize: number): string => {
+    if (fontSize > 32) return colors[0]
     if (fontSize > 16) return colors[1]
     return colors[2]
   }
 
-export const formValuesToWCOptions = (form: WcStyleType): WCOptions => {
-  console.log(form)
+export const formValuesToWCOptions = (formValues: WcStyleType): WCOptions => {
+  console.log(formValues)
   return {
-    ...form,
-    color: setColor(form.colors),
+    ...formValues,
+    color: colorsToColor(formValues.colors),
     weightFactor: (size) => (size * 11) ** 1.1,
   }
 }

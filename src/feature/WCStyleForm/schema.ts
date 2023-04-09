@@ -1,6 +1,9 @@
 import z from 'zod'
 
-const colorSchema = z.custom((v) => /#.+/.test(v as string))
+import { type Simplify } from '~/types/Simplify.type'
+
+type Color = `#${string}`
+const colorSchema = z.custom<Color>((v) => /#\d{6}/.test(v as Color))
 
 const fontWeightSchema = z.union([
   z.literal(100),
@@ -30,7 +33,7 @@ const shapeSchema = z.enum([
 ])
 
 export const wcStyleSchema = z.object({
-  fontFamilyId: z.string(),
+  fontFamily: z.string(),
   fontWeight: fontWeightSchema,
   backgroundColor: colorSchema,
   minSize: z.number(),
@@ -43,7 +46,7 @@ export const wcStyleSchema = z.object({
   rotateRatio: z.number(),
   shape: shapeSchema,
   maskColor: z.string(),
-  colors: z.array(colorSchema).length(3),
+  colors: z.tuple([colorSchema, colorSchema, colorSchema]),
 })
 
-export type WcStyleType = z.infer<typeof wcStyleSchema>
+export type WcStyleType = Simplify<z.infer<typeof wcStyleSchema>>

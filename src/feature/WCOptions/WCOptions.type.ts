@@ -6,7 +6,7 @@ export type WCOptions = Simplify<
     WordCloud.Options,
     | 'fontFamily'
     | 'fontWeight'
-    | 'color'
+    // | 'color'
     | 'backgroundColor'
     | 'minSize'
     | 'weightFactor'
