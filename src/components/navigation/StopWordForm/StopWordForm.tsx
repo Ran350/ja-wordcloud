@@ -7,12 +7,6 @@ import { ClearAllButton } from './ClearAllButton'
 import { RegisterButton } from './RegisterButton'
 import { ResetButton } from './ResetButton'
 
-const BudgeXButton = (
-  <ActionIcon size="xs" color="blue" radius="xl" variant="transparent">
-    <IconX size={rem(10)} />
-  </ActionIcon>
-)
-
 type Props = {
   stopWord: {
     list: string[]
@@ -22,7 +16,7 @@ type Props = {
     setEmpty: () => void
   }
 }
-export const StopWordFormNav = ({ stopWord }: Props) => {
+export const StopWordForm = ({ stopWord }: Props) => {
   const [text, setText] = useState('')
 
   const addStopWord = () => {
@@ -40,7 +34,17 @@ export const StopWordFormNav = ({ stopWord }: Props) => {
       <Navbar.Section grow component={ScrollArea} mt="md">
         <Flex wrap="wrap" gap="xs">
           {stopWord.list.map((sw, i) => (
-            <Badge key={sw} variant="outline" pr={3} rightSection={BudgeXButton} onClick={() => stopWord.remove(i)}>
+            <Badge
+              key={sw}
+              variant="outline"
+              pr={3}
+              rightSection={
+                <ActionIcon size="xs" color="blue" radius="xl" variant="transparent">
+                  <IconX size={rem(10)} />
+                </ActionIcon>
+              }
+              onClick={() => stopWord.remove(i)}
+            >
               {sw}
             </Badge>
           ))}
