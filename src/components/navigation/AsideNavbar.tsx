@@ -1,20 +1,19 @@
 import { Navbar, SegmentedControl, type SegmentedControlItem } from '@mantine/core'
 import { type ComponentProps, useState } from 'react'
 
-import { StopWordFormNav } from './StopWordFormNav/StopWordNav'
-import { WCStyleFormNav } from './WCStyleFormNav/WCStyleNav'
+import { StopWordForm } from './StopWordForm/StopWordForm'
+import { WCStyleForm } from './WCStyleForm/WCStyleForm'
 
 type Props = {
-  wcStyleFormProps: ComponentProps<typeof WCStyleFormNav>
-  stopWordProps: ComponentProps<typeof StopWordFormNav>
+  stopWordProps: ComponentProps<typeof StopWordForm>
 }
-export const AsideForm = ({ wcStyleFormProps, stopWordProps }: Props) => {
+export const AsideNavbar = ({ stopWordProps }: Props) => {
   type TabSelection = 'wcStyle' | 'stopWord'
   const [section, setSection] = useState<TabSelection>('wcStyle')
 
   const tab = {
-    wcStyle: <WCStyleFormNav {...wcStyleFormProps} />,
-    stopWord: <StopWordFormNav {...stopWordProps} />,
+    wcStyle: <WCStyleForm />,
+    stopWord: <StopWordForm {...stopWordProps} />,
   }
   const controlData: (SegmentedControlItem & { value: TabSelection })[] = [
     { label: 'Style', value: 'wcStyle' },
