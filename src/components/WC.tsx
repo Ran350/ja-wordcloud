@@ -1,16 +1,15 @@
 import { useEffect, useRef } from 'react'
 
-import { generateWCOption } from '~/feature/WCOption/generateWCOption'
-import type { WCStyleForm } from '~/feature/WCStyleForm/WCStyleForm.type'
+import { type WCOptions } from '~/feature/WCOptions/WCOptions.type'
 import { generateTokens } from '~/feature/wordSegment/generateTokens'
 
 type Props = {
   sentence: string
   stopWordList: string[]
-  wcStyleOption: WCStyleForm
+  wcOptions: WCOptions
   magnification: number
 }
-export const WC = ({ sentence, stopWordList, wcStyleOption, magnification }: Props) => {
+export const WC = ({ sentence, stopWordList, wcOptions, magnification }: Props) => {
   const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -18,9 +17,9 @@ export const WC = ({ sentence, stopWordList, wcStyleOption, magnification }: Pro
     import('wordcloud').then(({ default: WordCloud }) => {
       // 動的importしているのは、wordcloud2.jsがwindow objectを参照しており、Next.jsがSSG/SSRできないため
       if (ref.current === null) return
-      WordCloud(ref.current, { list: token, ...generateWCOption(wcStyleOption) })
+      WordCloud(ref.current, { list: token, ...wcOptions })
     })
-  }, [sentence, wcStyleOption, stopWordList])
+  }, [sentence, stopWordList, wcOptions])
 
   return (
     <>
