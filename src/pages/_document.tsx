@@ -25,7 +25,7 @@ export default class _Document extends Document {
           <meta charSet="UTF-8" />
           <meta
             name="description"
-            content="Author: Ran350, WordCloud generator for Japanese, many selectable style option, serverless, generate by wordcloud2.js, split by TinySegmenter"
+            content="超軽量な日本語ワードクラウド生成ツール, フォント、色、クラウドの形状、ストップワード(除外ワード)などカスタマイズ可能な自由度の高いツール, 登録不要で無料で生成できる, Open Source Software, WordCloud generator for Japanese, many selectable style option, serverless, generate by wordcloud2.js, split by TinySegmenter, Author: Ran350"
           ></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
           <meta name="theme-color" content="#285943" />
