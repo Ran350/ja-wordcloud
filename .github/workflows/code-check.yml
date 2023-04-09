@@ -36,3 +36,6 @@ jobs:
 
       - name: Code Check
         run: yarn run check
+
+      - name: Build
+        run: yarn run export
