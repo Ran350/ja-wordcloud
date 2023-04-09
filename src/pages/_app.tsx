@@ -4,13 +4,9 @@ import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <div>
+    <>
       <Head>
         <title>Japanese WordCloud</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-        <meta name="theme-color" content="#285943" />
-        <link rel="manifest" href="manifest.webmanifest" />
-        <link rel="apple-touch-icon" href="icons/icon192.png" />
       </Head>
 
       <MantineProvider
@@ -26,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       >
         <Component {...pageProps} />
       </MantineProvider>
-    </div>
+    </>
   )
 }
 
