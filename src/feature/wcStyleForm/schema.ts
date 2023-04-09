@@ -65,7 +65,7 @@ export const wcStyleSchema = z.object({
   rotateRatio: z.number(),
   shape: shapeSchema,
   maskColor: z.string(),
-  colors: z.tuple([colorSchema, colorSchema, colorSchema]),
+  colors: z.tuple([colorSchema, colorSchema, colorSchema]).rest(z.never()),
 })
 
 export type WcStyleType = Simplify<z.infer<typeof wcStyleSchema>>
