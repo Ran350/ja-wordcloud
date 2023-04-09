@@ -7,7 +7,7 @@ const [FormProvider, useFormContext, useMForm] = createFormContext<WcStyleType>(
 const useWCStyleForm = () => {
   return useMForm({
     initialValues: {
-      fontFamilyId: '1',
+      fontFamiliesIndex: 0,
       fontWeight: 'normal',
       // カラーパレット  #f4f7f7 > #8cd790 > #77af9c > #285943
       colors: ['#285943', '#77af9c', '#8cd790'],

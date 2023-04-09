@@ -1,3 +1,5 @@
+import { fontFamilies, mergeFamilies } from '../font/fontFamily'
+
 import { type WcStyleType } from './schema'
 
 import type { WCOptions } from '~/feature/WCOptions/WCOptions.type'
@@ -11,10 +13,16 @@ const colorsToColor =
   }
 
 export const formValuesToWCOptions = (formValues: WcStyleType): WCOptions => {
-  console.log(formValues)
-  return {
-    ...formValues,
-    color: colorsToColor(formValues.colors),
+  console.log('formValues', formValues)
+  const { fontFamiliesIndex, colors, ...others } = formValues
+
+  const wcOptions: WCOptions = {
+    ...others,
+    fontFamily: mergeFamilies(fontFamilies[fontFamiliesIndex]),
+    color: colorsToColor(colors),
     weightFactor: (size) => (size * 11) ** 1.1,
   }
+
+  console.log('wcOptions', wcOptions)
+  return wcOptions
 }

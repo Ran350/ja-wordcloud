@@ -1,7 +1,6 @@
-import { Flex, Select, Text } from '@mantine/core'
+import { Flex, Select, SelectProps, Text } from '@mantine/core'
 import { forwardRef } from 'react'
 
-import { fontFamilies } from '~/feature/font/fontFamily'
 import { fontFamilySampleText } from '~/feature/font/sampleText'
 
 type SelectItemProps = {
@@ -15,31 +14,30 @@ const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(function SelectIt
   return (
     <div ref={ref} {...others}>
       <Flex justify="space-between">
-        <Text>{label}</Text>
+        <Text sx={{ fontFamily }}>{label}</Text>
         <Text sx={{ fontFamily }}>{fontFamilySampleText}</Text>
       </Flex>
     </div>
   )
 })
 
-type Props = {
-  fontFamily: string
-  onChange: (value: string) => void
-}
-export const FontFamilyField = ({ fontFamily, onChange }: Props) => {
+type Props = Required<Pick<SelectProps, 'data' | 'defaultValue' | 'onChange'>> & { fontFamily: string }
+export const FontFamilySelect = ({ data, defaultValue, onChange, fontFamily }: Props) => {
   return (
     <Select
       label="フォント"
       placeholder="フォント"
       itemComponent={SelectItem}
       maxDropdownHeight={400}
-      data={fontFamilies.map(({ name, fallbacks }) => ({
-        value: name,
-        label: name,
-        fontFamily: [name, ...fallbacks].join(','),
-      }))}
-      defaultValue={fontFamily}
+      data={data}
+      defaultValue={defaultValue}
       onChange={onChange}
+      styles={(theme) => ({
+        input: {
+          fontFamily,
+          color: theme.colors.gray,
+        },
+      })}
     />
   )
 }

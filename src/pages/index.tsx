@@ -24,7 +24,7 @@ const IndexPage = () => {
     <FormProvider form={form}>
       <AppShell padding="md" header={<Header />} navbar={<AsideNavbar stopWordProps={{ stopWord }} />}>
         <Center>
-          <Stack style={{ width: '800px' }}>
+          <Stack style={{ maxWidth: '100%', maxHeight: '100%' }}>
             <WC
               sentence={sentence}
               stopWordList={stopWord.list}
