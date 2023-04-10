@@ -1,9 +1,8 @@
-import { AppShell, Button, Center, Flex, Stack } from '@mantine/core'
+import { AppShell, Button, Center, Flex, Stack, Textarea } from '@mantine/core'
 import { useState } from 'react'
 
 import { Header } from '~/components/header/Header'
 import { AsideNavbar } from '~/components/navigation/AsideNavbar'
-import { TextArea } from '~/components/TextArea'
 import { WC } from '~/components/WC'
 import { useStopWord } from '~/feature/stopWord/useStopWord'
 import { FormProvider, useWCStyleForm } from '~/feature/wcStyleForm/context'
@@ -32,7 +31,13 @@ const IndexPage = () => {
               magnification={50}
             />
 
-            <TextArea placeholder={exampleSentence} onChangeText={setTextAreaText} />
+            <Textarea
+              placeholder={exampleSentence}
+              autosize
+              minRows={4}
+              maxRows={5}
+              onChange={(x) => setTextAreaText(x.target.value)}
+            />
 
             <Flex justify="flex-end">
               <Button size="md" color="green.9" onClick={generateWordCloud}>
