@@ -1,14 +1,8 @@
 import TinySegmenter from 'tiny-segmenter'
 
-type Word = string
-type Count = number
-type Token = [Word, Count]
-
-const separateWords = (sentence: string): string[] => {
-  console.time('seg')
+const segment = (sentence: string): string[] => {
   const segmenter = new TinySegmenter()
   const segments = segmenter.segment(sentence)
-  console.timeEnd('seg')
   return segments
 }
 
@@ -16,9 +10,9 @@ const filterStopWords = (wordList: string[], stopWords: string[]): string[] => {
   return wordList.filter((e) => !stopWords.includes(e))
 }
 
-const countWords = (words: string[]): Token[] =>
+const countWords = (words: string[]): [string, number][] =>
   // ["word1", "word2", "word1"]
-  // -> {"word1": 2, "word2", 1}
+  // -> { "word1": 2, "word2": 1 }
   // -> [["word1", 2], ["word2", 1]]
 
   Object.entries(
@@ -31,8 +25,8 @@ const countWords = (words: string[]): Token[] =>
     ),
   )
 
-export const generateTokens = (sentence: string, stopWords: string[]): Token[] => {
-  const segmented = separateWords(sentence)
+export const segmentSentence = (sentence: string, stopWords: string[]): [string, number][] => {
+  const segmented = segment(sentence)
   const filtered = filterStopWords(segmented, stopWords)
   return countWords(filtered)
 }
