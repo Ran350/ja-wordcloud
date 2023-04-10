@@ -16,7 +16,7 @@ export const Header = () => {
             Japanese WordCloud
           </Anchor>
         </Title>
-        <Anchor href="https://github.com/ran350/ja-wordcloud" aria-label="GitHub">
+        <Anchor href="https://github.com/ran350/ja-wordcloud" aria-label="GitHub" color="gray.7">
           <GithubIcon size={30} />
         </Anchor>
       </Flex>
