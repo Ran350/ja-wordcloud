@@ -11,10 +11,6 @@ export const AsideNavbar = ({ stopWordProps }: Props) => {
   type TabSelection = 'wcStyle' | 'stopWord'
   const [section, setSection] = useState<TabSelection>('wcStyle')
 
-  const tab = {
-    wcStyle: <WCStyleForm />,
-    stopWord: <StopWordForm {...stopWordProps} />,
-  }
   const controlData: (SegmentedControlItem & { value: TabSelection })[] = [
     { label: 'Style', value: 'wcStyle' },
     { label: 'Stop Word', value: 'stopWord' },
@@ -27,14 +23,20 @@ export const AsideNavbar = ({ stopWordProps }: Props) => {
         <SegmentedControl
           value={section}
           onChange={(value: TabSelection) => setSection(value)}
-          // FIXME: assert function
           transitionTimingFunction="ease"
           fullWidth
           data={controlData}
         />
       </Navbar.Section>
 
-      {tab[section]}
+      <form>
+        {
+          {
+            wcStyle: <WCStyleForm />,
+            stopWord: <StopWordForm {...stopWordProps} />,
+          }[section]
+        }
+      </form>
     </Navbar>
   )
 }
